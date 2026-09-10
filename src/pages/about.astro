@@ -30,26 +30,33 @@ const principles = [
 
 <BaseLayout
   title="About"
-  description="Software engineer, continuous learner, and builder of real-world systems."
+  description="Roberto Viray II: software engineer, continuous learner, and builder of real-world systems."
 >
   <PageHeader
     eyebrow="system.bio // root"
     title="About"
-    description="Software engineer, continuous learner, and builder of real-world systems."
+    description="Roberto Viray II. Software engineer, continuous learner, and builder of real-world systems."
   />
 
   <div class="container page">
     <div class="columns">
       <div class="main">
         <section class="panel intro">
-          <h2>Hey there, I'm the developer behind <span class="accent">Dev633</span>.</h2>
+          <h2>Hey there, I'm Roberto Viray II, the developer behind <span class="accent">deV633</span>.</h2>
           <p class="muted">
-            I build backend services and the interfaces that sit on top of them. Most of my
-            work involves Java and Spring Boot on the server, a typed Vue or Astro frontend, and
-            PostgreSQL underneath, packaged with Docker and deployed behind a reverse proxy.
+            A decade of coding and learning, and still taking things apart to see how they
+            work. I build backend services and the interfaces that sit on top of them. Most
+            of that work is Java and Spring Boot on the server, a typed Vue or Astro
+            frontend, and PostgreSQL underneath, packaged with Docker and deployed behind a
+            reverse proxy.
+          </p>
+          <p class="muted">
+            Ten years in, the lesson that stuck is that the interesting part is never the
+            framework. It is the failure mode nobody planned for, and what you write down
+            afterwards.
           </p>
           <p class="chips">
-            <span class="chip chip-neutral">bash, zsh, vim</span>
+            <span class="chip chip-neutral">10+ years building</span>
             <span class="chip chip-neutral">backend-leaning full stack</span>
             <span class="chip chip-neutral">self-hosting</span>
           </p>
@@ -68,7 +75,7 @@ const principles = [
         <section class="panel">
           <h2><Icon name="book" size={18} />Continuous learning</h2>
           <p class="muted">
-            Dev633 exists because too much hard-won detail evaporates. Debugging sessions, subtle
+            deV633 exists because too much hard-won detail evaporates. Debugging sessions, subtle
             race conditions, and protocol gotchas get solved once and then forgotten. Writing them
             down as short, structured notes turns a one-time fix into something reusable.
           </p>
@@ -101,6 +108,8 @@ const principles = [
         <section class="panel side-card">
           <p class="rail-title">Profile</p>
           <dl class="facts">
+            <div><dt>Name</dt><dd>Roberto Viray II</dd></div>
+            <div><dt>Experience</dt><dd>A decade of coding</dd></div>
             <div><dt>Focus</dt><dd>Backend &amp; cloud systems</dd></div>
             <div><dt>Frontend</dt><dd>Vue 3, TypeScript, Astro</dd></div>
             <div><dt>Status</dt><dd class="accent">Building &amp; documenting</dd></div>
@@ -124,14 +133,18 @@ const principles = [
             </span>
             <Icon name="arrow-up-right" size={13} />
           </a>
-          <a class="contact" href={`mailto:${SITE.email}`}>
-            <Icon name="mail" size={15} />
-            <span>
-              <strong>Email</strong>
-              <span class="mono break-anywhere">{SITE.email}</span>
-            </span>
-            <Icon name="arrow-up-right" size={13} />
-          </a>
+          {
+            SITE.email && (
+              <a class="contact" href={`mailto:${SITE.email}`}>
+                <Icon name="mail" size={15} />
+                <span>
+                  <strong>Email</strong>
+                  <span class="mono break-anywhere">{SITE.email}</span>
+                </span>
+                <Icon name="arrow-up-right" size={13} />
+              </a>
+            )
+          }
           <a class="contact" href="/rss.xml">
             <Icon name="rss" size={15} />
             <span>

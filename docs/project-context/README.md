@@ -1,6 +1,6 @@
 # Project context
 
-These four files are written for a future session that has no memory of how Dev633
+These four files are written for a future session that has no memory of how deV633
 was built. Read them before changing anything.
 
 | File | Contents |
@@ -13,9 +13,9 @@ was built. Read them before changing anything.
 Keep them current. When you finish a piece of work, update `current-state.md` and
 `next-steps.md` in the same commit.
 
-## What Dev633 is
+## What deV633 is
 
-Dev633 is a personal developer site and engineering knowledge hub. It presents the
+deV633 is a personal developer site and engineering knowledge hub. It presents the
 systems its author builds and the technical notes kept while building them. The tone
 is an engineer documenting work, not a marketing portfolio.
 

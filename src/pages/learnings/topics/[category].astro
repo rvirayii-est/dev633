@@ -23,7 +23,7 @@ export const getStaticPaths = async () => {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { category, entries, all } = Astro.props;
-const description = `Dev633 learnings filed under ${category}.`;
+const description = `deV633 learnings filed under ${category}.`;
 ---
 
 <BaseLayout title={`${category} learnings`} description={description}>

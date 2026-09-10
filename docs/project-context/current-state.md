@@ -78,9 +78,18 @@ overflow on any route at any of those widths. No console errors.
 | `src/components/LearningArchive.astro` | Archive layout shared by the index and category pages |
 | `astro.config.mjs` | Site URL, integrations, Shiki dual themes |
 
+## Identity
+
+The brand is **deV633**: lowercase `de`, capital `V`, then `633`. The wordmark renders
+`de` in the text colour and `V633` in the accent purple. Do not write it `Dev633`.
+
+The author is Roberto Viray II. The GitHub account is
+[`rvirayii-est`](https://github.com/rvirayii-est) and the repository is `dev633`.
+
 ## Known placeholders
 
 - `SITE.url` is `https://dev633.pages.dev`; update it when a domain is attached.
-- `SITE.github`, `githubHandle`, and `email` point at `dev633` placeholders.
+- `SITE.email` is empty, so the about page hides the email contact row. Set it when a
+  public address is chosen.
 - The two placeholder project case studies say so in their bodies.
 - `public/og-default.svg` is a generated card, not a designed one.

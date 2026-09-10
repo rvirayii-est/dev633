@@ -1,6 +1,6 @@
-# Dev633
+# deV633
 
-Dev633 is my personal developer site and engineering knowledge hub: the systems I
+deV633 is my personal developer site and engineering knowledge hub: the systems I
 build, and the technical notes I keep while building them.
 
 It is a static site. Every page is rendered at build time and served as plain HTML.

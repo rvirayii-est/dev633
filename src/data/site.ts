@@ -5,17 +5,18 @@
  */
 
 export const SITE = {
-  name: 'Dev633',
+  name: 'deV633',
   /** Update once the production domain is attached in Cloudflare Pages. */
   url: 'https://dev633.pages.dev',
   tagline: 'Building software. Learning continuously. Sharing what works.',
   description:
-    'Dev633 is where I share development learnings, experiments, projects, architecture decisions, and lessons from building real software.',
-  author: 'Dev633',
+    'deV633 is where I share development learnings, experiments, projects, architecture decisions, and lessons from building real software.',
+  author: 'Roberto Viray II',
   locale: 'en',
-  github: 'https://github.com/dev633',
-  githubHandle: '@dev633',
-  email: 'hello@dev633.dev',
+  github: 'https://github.com/rvirayii-est',
+  githubHandle: '@rvirayii-est',
+  /** Left empty until a public address is chosen; the contact row hides itself. */
+  email: '',
 } as const;
 
 export type NavItem = { label: string; href: string };

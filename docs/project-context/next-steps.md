@@ -4,11 +4,11 @@ Prioritised. Keep it short: if everything is P0, nothing is.
 
 ## P0
 
-1. **Replace the placeholder identity.** Set the real GitHub URL, handle, and contact
-   address in `src/data/site.ts`. They currently point at `dev633` placeholders.
-2. **Create the GitHub repository and connect Cloudflare Pages.** Settings are in
+1. **Connect Cloudflare Pages to the GitHub repository.** Settings are in
    `docs/deployment.md`. Confirm the first deploy, then update `SITE.url` and the
    `Sitemap:` line in `public/robots.txt` if a custom domain is attached.
+2. **Decide on a public contact address.** `SITE.email` is empty, so the about page
+   hides that row. Set it when you have an address you want published.
 3. **Replace the two placeholder project case studies.** `telemetry-pulse.md` and
    `bytevault-auth.md` are marked as starter content in their bodies. Replace them
    with real projects or delete them.

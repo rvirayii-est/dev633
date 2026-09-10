@@ -1,6 +1,6 @@
 ---
 /**
- * Text-based wordmark: a prompt-caret glyph plus "Dev633".
+ * Text-based wordmark: a prompt-caret glyph plus "deV633".
  * Derived from specs/dev633_wordmark_logo/code.html but rebuilt so the
  * text is real text (selectable, themable) rather than an SVG <text> node.
  * Swap the <span class="mark"> block for a real logo later.
@@ -13,14 +13,14 @@ interface Props {
 const { href = '/', class: className } = Astro.props;
 ---
 
-<a href={href} class:list={['wordmark', className]} aria-label="Dev633 — home">
+<a href={href} class:list={['wordmark', className]} aria-label="deV633 — home">
   <span class="mark" aria-hidden="true">
     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
       <path d="m5 7 4 5-4 5"></path>
       <path d="M11 17h6"></path>
     </svg>
   </span>
-  <span class="text">Dev<span class="accent">633</span></span>
+  <span class="text">de<span class="accent">V633</span></span>
 </a>
 
 <style>
@@ -45,7 +45,13 @@ const { href = '/', class: className } = Astro.props;
     flex-shrink: 0;
   }
 
+  .text {
+    font-weight: 600;
+  }
+
+  /* The capital V and the digits carry the brand emphasis. */
   .accent {
     color: var(--accent);
+    font-weight: 700;
   }
 </style>

@@ -1,10 +1,10 @@
 # Deployment: Cloudflare Pages
 
-Dev633 deploys as a plain static site. No Cloudflare Workers, Functions, KV, or
+deV633 deploys as a plain static site. No Cloudflare Workers, Functions, KV, or
 server-side rendering are used, and none should be added without a real requirement.
 
 ```text
-GitHub repository  ──►  Cloudflare Pages build  ──►  static Dev633 site on the edge
+GitHub repository  ──►  Cloudflare Pages build  ──►  static deV633 site on the edge
 ```
 
 ## Build configuration

@@ -1,9 +1,9 @@
 ---
-name: 'Dev633'
+name: 'deV633'
 description: 'This site: a static Astro publication where the Git repository is the CMS and every note is a Markdown file.'
 status: 'Active'
 technologies: ['Astro', 'TypeScript', 'Markdown', 'Cloudflare Pages']
-github: 'https://github.com/dev633/dev633'
+github: 'https://github.com/rvirayii-est/dev633'
 featured: true
 order: 1
 draft: false
@@ -11,7 +11,7 @@ draft: false
 
 ## What it is
 
-Dev633 is a personal engineering journal and portfolio. It is a static site: every
+deV633 is a personal engineering journal and portfolio. It is a static site: every
 page is rendered at build time and served as plain HTML, with no server, database, or
 admin panel behind it.
 

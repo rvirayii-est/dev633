@@ -2,7 +2,7 @@
 
 ## Shape of the system
 
-Dev633 is a static site generator run at build time. Nothing executes on a server at
+deV633 is a static site generator run at build time. Nothing executes on a server at
 request time.
 
 ```text

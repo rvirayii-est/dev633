@@ -18,10 +18,13 @@ const projects = featured.length > 0 ? featured : allProjects.slice(0, 3);
     <section class="hero">
       <div class="hero-copy">
         <p class="eyebrow">
-          <span class="dot"></span>Software Developer • Building • Learning • Sharing
+          <span class="dot"></span>Roberto Viray II • Software Developer
         </p>
         <h1>I build software and document what I learn.</h1>
         <p class="lede">{SITE.description}</p>
+        <p class="hero-note">
+          A decade of coding and learning, kept in the open rather than in my head.
+        </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="/learnings">
             Read my learnings
@@ -139,6 +142,13 @@ const projects = featured.length > 0 ? featured : allProjects.slice(0, 3);
     line-height: 1.15;
     font-weight: 700;
     letter-spacing: -0.03em;
+  }
+
+  .hero-note {
+    font-size: 0.9375rem;
+    color: var(--text-faint);
+    border-left: 2px solid var(--accent-bright);
+    padding-left: var(--space-md);
   }
 
   .hero-actions {
