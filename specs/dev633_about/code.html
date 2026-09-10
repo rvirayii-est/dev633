@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "outline": "#7b7487", "inverse-on-surface": "#f3f0f4", "on-tertiary-container": "#ede1ff", "on-error": "#ffffff", "primary": "#630ed4", "on-error-container": "#93000a", "on-primary-container": "#ede0ff", "secondary-container": "#e4e0f5", "surface-container-highest": "#e4e1e6", "surface-container-lowest": "#ffffff", "surface-tint": "#732ee4", "surface-variant": "#e4e1e6", "inverse-primary": "#d2bbff", "primary-fixed-dim": "#d2bbff", "on-secondary-container": "#646274", "on-surface": "#1b1b1e", "surface-container-low": "#f6f2f7", "tertiary": "#6129bc", "surface": "#fbf8fc", "on-primary-fixed-variant": "#5a00c6", "on-tertiary-fixed": "#250059", "on-background": "#1b1b1e", "inverse-surface": "#303033", "secondary-fixed": "#e4e0f5", "secondary": "#5e5c6e", "on-tertiary-fixed-variant": "#581db3", "on-secondary": "#ffffff", "on-primary-fixed": "#25005a", "tertiary-fixed-dim": "#d3bbff", "primary-container": "#7c3aed", "on-primary": "#ffffff", "primary-fixed": "#eaddff", "surface-container": "#f0edf1", "surface-container-high": "#eae7eb", "error": "#ba1a1a", "tertiary-fixed": "#ebddff", "tertiary-container": "#7a47d5", "outline-variant": "#ccc3d8", "on-surface-variant": "#4a4455", "background": "#fbf8fc", "surface-bright": "#fbf8fc", "on-secondary-fixed-variant": "#464555", "secondary-fixed-dim": "#c7c4d8", "surface-dim": "#dcd9dd", "on-secondary-fixed": "#1b1a29", "on-tertiary": "#ffffff", "error-container": "#ffdad6" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "gutter": "1.5rem", "space-md": "1rem", "margin-mobile": "1.25rem", "margin": "2rem", "space-sm": "0.5rem", "space-xl": "2.5rem", "space-lg": "1.5rem", "gutter-mobile": "1rem" }, "fontFamily": { "label-md": [ "JetBrains Mono" ], "headline-sm": [ "Geist" ], "headline-md": [ "Geist" ], "code-sm": [ "JetBrains Mono" ], "headline-xl": [ "Geist" ], "headline-lg-mobile": [ "Geist" ], "body-lg": [ "Geist" ], "headline-lg": [ "Geist" ], "label-sm": [ "JetBrains Mono" ], "body-sm": [ "Geist" ], "body-md": [ "Geist" ], "code-md": [ "JetBrains Mono" ], "headline-xl-mobile": [ "Geist" ] }, "fontSize": { "label-md": [ "13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" } ], "headline-sm": [ "18px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "headline-md": [ "24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" } ], "code-sm": [ "12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" } ], "headline-xl": [ "48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "700" } ], "headline-lg-mobile": [ "26px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "body-lg": [ "18px", { "lineHeight": "30px", "letterSpacing": "-0.005em", "fontWeight": "400" } ], "headline-lg": [ "36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "600" } ], "label-sm": [ "11px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" } ], "body-sm": [ "14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" } ], "body-md": [ "16px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" } ], "code-md": [ "14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" } ], "headline-xl-mobile": [ "32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" } ] } } } };</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest/80 backdrop-blur-xl border-b border-surface-variant"><div class="h-16 max-w-5xl mx-auto px-gutter-mobile md:px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-xs" data-path="home" href="#"><img alt="Dev633 Wordmark Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1W4aV3Vi_JUxxxdRmygzswZ5_tRAMlkup6UTh4FwKzTvojXiGwWHBs2co1W4i40YVT5EScdCS2wTWGAcwgNRx_sBIE2Jpdtce1WupHjRg76dXcWaYga7v4J0LTPwwF5-GMn9PQtzv1etPRhRARgm0hHBp9fZ4rW_ug52NtKHSOm8OCKa_bvDivzW8sXC8ULTCy20mZXimK9AYeBlrV-67oavWGzQOr8TBFnGXA1ggfdiYn4Ucl7_ZL4-_c"/><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface font-semibold">Dev<span class="text-primary font-bold">633</span></span></a></div><nav class="hidden md:flex items-center gap-space-lg" data-active-classes="text-primary font-semibold"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="home" href="#">Home</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="learnings" href="#">Learnings</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="projects" href="#">Projects</a><a aria-current="page" class="transition-colors text-primary font-semibold" data-path="about" href="#">About</a></nav><div class="flex items-center gap-space-sm"><a aria-label="GitHub Profile" class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" href="https://github.com" rel="noreferrer" target="_blank"><span class="material-symbols-outlined text-[20px]">code</span></a><button aria-label="Toggle color mode" class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" type="button"><span class="material-symbols-outlined text-[20px]">light_mode</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 min-h-screen bg-background"><div class="flex flex-col w-full">
+<!-- Subtle Ambient Glow -->
+<div class="relative w-full max-w-5xl mx-auto px-gutter-mobile md:px-gutter py-space-xl">
+<div class="absolute -top-12 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute top-1/2 left-0 w-80 h-80 bg-secondary-container/30 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<!-- Page Header (Editorial & Minimalist) -->
+<header class="mb-space-xl pb-space-lg">
+<div class="inline-flex items-center gap-space-xs font-label-sm text-label-sm text-primary uppercase tracking-widest mb-space-sm px-space-sm py-0.5 rounded-full bg-primary-fixed/40">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+        system.bio // root
+      </div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight mb-space-xs">
+        About Me
+      </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+        Software engineer, lifelong learner, and builder of real-world systems.
+      </p>
+</header>
+<!-- Two-Column Asymmetrical Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- Left / Main Column (Narrative + Deep Dives) -->
+<div class="lg:col-span-8 flex flex-col gap-space-xl">
+<!-- Intro Heroic Persona Statement -->
+<section class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-primary"></div>
+<p class="font-headline-md text-headline-md text-on-surface font-semibold mb-space-sm">
+            Hey there, I'm the developer behind <span class="text-primary font-bold">Dev633</span>.
+          </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-md">
+            I build resilient digital infrastructure and ship tactile, human-centered interfaces. For me, programming isn't just about syntax or frameworks—it's about dissecting ambiguous problems and translating them into durable, inspectable codebases.
+          </p>
+<div class="flex flex-wrap items-center gap-space-sm pt-space-xs">
+<span class="inline-flex items-center gap-1.5 font-code-sm text-code-sm px-space-sm py-1 rounded bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px] text-primary">terminal</span> bash, zsh, vim
+            </span>
+<span class="inline-flex items-center gap-1.5 font-code-sm text-code-sm px-space-sm py-1 rounded bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px] text-primary">memory</span> low-latency
+            </span>
+<span class="inline-flex items-center gap-1.5 font-code-sm text-code-sm px-space-sm py-1 rounded bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px] text-primary">hub</span> distributed consensus
+            </span>
+</div>
+</section>
+<!-- Narrative Sections (The Craft & Origin) -->
+<section class="flex flex-col gap-space-lg">
+<!-- Section 1: Building Software -->
+<article class="bg-surface-container-low p-space-lg rounded-xl">
+<div class="flex items-center gap-space-sm mb-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[18px]">dns</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Building Software</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              My engineering sweet spot sits at the intersection of high-availability distributed backend architecture and deliberate, crisp user experiences. I thrive on unraveling race conditions, partitioning data stores for concurrent workloads, and ensuring system components fail gracefully rather than catastrophically. Yet, I refuse to hide behind black-box APIs—bringing that exact same precision to frontend performance and semantic micro-interactions completes the engineering loop.
+            </p>
+</article>
+<!-- Section 2: Continuous Learning -->
+<article class="bg-surface-container-low p-space-lg rounded-xl">
+<div class="flex items-center gap-space-sm mb-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[18px]">auto_stories</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Continuous Learning</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-sm">
+              Dev633 was born out of an aggressive war against the forgetting curve. When tackling edge-case crashes, subtle race conditions in production, or obscure protocol nuances, the resolution shouldn't be lost to ephemeral Slack threads or fleeting mental notes.
+            </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Here, raw production logs, architectural trade-offs, and unexpected gotchas are refined into structured, open-source technical write-ups. If I solve it once, it belongs in public documentation.
+            </p>
+</article>
+<!-- Section 3: How I Work -->
+<article class="bg-surface-container-low p-space-lg rounded-xl">
+<div class="flex items-center gap-space-sm mb-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[18px]">architecture</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">How I Work</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md mt-space-sm">
+<div class="p-space-md bg-surface-container-lowest rounded-lg shadow-sm">
+<div class="font-headline-sm text-body-md text-on-surface font-semibold mb-1 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                  Clarity Over Cleverness
+                </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Write readable, self-describing code. Five lines of straightforward logic invariably beat a cryptic, one-line mental puzzle.
+                </p>
+</div>
+<div class="p-space-md bg-surface-container-lowest rounded-lg shadow-sm">
+<div class="font-headline-sm text-body-md text-on-surface font-semibold mb-1 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">sync</span>
+                  Tight Feedback Loops
+                </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Fast unit tests, automated staging pipelines, and immediate observability metrics keep developer velocity sustainable.
+                </p>
+</div>
+<div class="p-space-md bg-surface-container-lowest rounded-lg shadow-sm">
+<div class="font-headline-sm text-body-md text-on-surface font-semibold mb-1 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">transform</span>
+                  Continuous Refactoring
+                </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Codebases rot without frequent pruning. Incremental cleanup during feature work eliminates suffocating tech debt.
+                </p>
+</div>
+<div class="p-space-md bg-surface-container-lowest rounded-lg shadow-sm">
+<div class="font-headline-sm text-body-md text-on-surface font-semibold mb-1 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+                  Automated Verification
+                </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  If it matters to production integrity, it is asserted in continuous integration. Zero reliance on manual hope.
+                </p>
+</div>
+</div>
+</article>
+</section>
+<!-- Tech Stack & Tools I Work With Regularly -->
+<section class="flex flex-col gap-space-md">
+<div class="flex items-baseline justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">
+                Tech Stack &amp; Tools
+              </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Categorized instruments used across production systems and daily development.
+              </p>
+</div>
+<span class="font-code-sm text-code-sm text-secondary hidden sm:inline">v2026.stack</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Backend -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span> Backend Systems
+                  </span>
+<span class="font-code-sm text-code-sm text-secondary">01</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+                  Core runtime services, concurrency primitives, enterprise microservices, and asynchronous event streams.
+                </p>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-primary-fixed/50 text-on-primary-fixed-variant font-code-sm text-code-sm px-2 py-0.5 rounded">Java</span>
+<span class="bg-primary-fixed/50 text-on-primary-fixed-variant font-code-sm text-code-sm px-2 py-0.5 rounded">Spring Boot</span>
+<span class="bg-primary-fixed/50 text-on-primary-fixed-variant font-code-sm text-code-sm px-2 py-0.5 rounded">C#</span>
+<span class="bg-primary-fixed/50 text-on-primary-fixed-variant font-code-sm text-code-sm px-2 py-0.5 rounded">.NET Core</span>
+<span class="bg-primary-fixed/50 text-on-primary-fixed-variant font-code-sm text-code-sm px-2 py-0.5 rounded">Go</span>
+</div>
+</div>
+<!-- Frontend -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span> Frontend Engineering
+                  </span>
+<span class="font-code-sm text-code-sm text-secondary">02</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+                  Modular reactivity, strict type definitions, utility-first design systems, and rapid asset bundling.
+                </p>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-primary-fixed/50 text-on-primary-fixed-variant font-code-sm text-code-sm px-2 py-0.5 rounded">Vue 3</span>
+<span class="bg-primary-fixed/50 text-on-primary-fixed-variant font-code-sm text-code-sm px-2 py-0.5 rounded">TypeScript</span>
+<span class="bg-primary-fixed/50 text-on-primary-fixed-variant font-code-sm text-code-sm px-2 py-0.5 rounded">Tailwind CSS</span>
+<span class="bg-primary-fixed/50 text-on-primary-fixed-variant font-code-sm text-code-sm px-2 py-0.5 rounded">Vite</span>
+</div>
+</div>
+<!-- Databases -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span> Data Architecture
+                  </span>
+<span class="font-code-sm text-code-sm text-secondary">03</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+                  Relational schemas, query optimization, in-memory caching tiers, and realtime relational synchronization.
+                </p>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-primary-fixed/50 text-on-primary-fixed-variant font-code-sm text-code-sm px-2 py-0.5 rounded">PostgreSQL</span>
+<span class="bg-primary-fixed/50 text-on-primary-fixed-variant font-code-sm text-code-sm px-2 py-0.5 rounded">SQL Server</span>
+<span class="bg-primary-fixed/50 text-on-primary-fixed-variant font-code-sm text-code-sm px-2 py-0.5 rounded">Supabase</span>
+<span class="bg-primary-fixed/50 text-on-primary-fixed-variant font-code-sm text-code-sm px-2 py-0.5 rounded">Redis</span>
+</div>
+</div>
+<!-- Mobile & Client -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Mobile Platforms
+                  </span>
+<span class="font-code-sm text-code-sm text-secondary">04</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+                  Cross-platform ergonomics, native hardware bridges, and concise idiomatic mobile logic.
+                </p>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-primary-fixed/50 text-on-primary-fixed-variant font-code-sm text-code-sm px-2 py-0.5 rounded">Flutter</span>
+<span class="bg-primary-fixed/50 text-on-primary-fixed-variant font-code-sm text-code-sm px-2 py-0.5 rounded">Kotlin</span>
+</div>
+</div>
+<!-- Infrastructure & DevOps (Spans full on md) -->
+<div class="md:col-span-2 bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="max-w-md">
+<div class="flex items-center gap-2 mb-1">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Infrastructure &amp; DevOps</span>
+<span class="font-code-sm text-code-sm text-secondary ml-auto sm:ml-2">05</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Containerized orchestration, reverse proxy routing, edge security policies, and declarative pipelines.
+                </p>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-secondary-container text-on-secondary-container font-code-sm text-code-sm px-2 py-1 rounded">Docker</span>
+<span class="bg-secondary-container text-on-secondary-container font-code-sm text-code-sm px-2 py-1 rounded">Nginx</span>
+<span class="bg-secondary-container text-on-secondary-container font-code-sm text-code-sm px-2 py-1 rounded">Cloudflare</span>
+<span class="bg-secondary-container text-on-secondary-container font-code-sm text-code-sm px-2 py-1 rounded">Linux</span>
+<span class="bg-secondary-container text-on-secondary-container font-code-sm text-code-sm px-2 py-1 rounded">GitHub Actions</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Currently Reading & Exploring Section -->
+<section class="bg-surface-container-low p-space-lg rounded-xl">
+<div class="flex items-center justify-between mb-space-md">
+<h2 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">radar</span>
+              Currently Reading &amp; Exploring
+            </h2>
+<span class="font-label-sm text-label-sm text-primary uppercase font-semibold px-2 py-0.5 rounded bg-surface-container">Live Tracker</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<!-- Book Feature Card -->
+<div class="p-space-md bg-surface-container-lowest rounded-lg shadow-sm flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded bg-primary-fixed flex-shrink-0 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+</div>
+<div class="min-w-0">
+<div class="font-label-sm text-label-sm text-secondary uppercase tracking-wider mb-0.5">Primary Literature</div>
+<div class="font-headline-sm text-body-md text-on-surface font-semibold truncate">Designing Data-Intensive Applications</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Martin Kleppmann</div>
+<div class="mt-space-xs flex items-center gap-1.5 font-code-sm text-code-sm text-primary">
+<span class="material-symbols-outlined text-[14px]">bookmark</span> Chapter 9: Consistency &amp; Consensus
+                </div>
+</div>
+</div>
+<!-- Deep Tech Topics Card -->
+<div class="p-space-md bg-surface-container-lowest rounded-lg shadow-sm flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded bg-secondary-container flex-shrink-0 flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+</div>
+<div class="min-w-0">
+<div class="font-label-sm text-label-sm text-secondary uppercase tracking-wider mb-0.5">Active Research Vectors</div>
+<div class="font-headline-sm text-body-md text-on-surface font-semibold">Low-level Systems</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-xs">
+                  Prototyping zero-overhead kernel hooks and memory-safe tools.
+                </p>
+<div class="flex flex-wrap gap-1">
+<span class="font-code-sm text-code-sm px-1.5 py-0.5 rounded bg-surface-container text-on-surface">Rust Systems</span>
+<span class="font-code-sm text-code-sm px-1.5 py-0.5 rounded bg-surface-container text-on-surface">eBPF Observability</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column / Sticky Sidebar -->
+<aside class="lg:col-span-4 flex flex-col gap-space-lg lg:sticky lg:top-20">
+<!-- Minimalist Developer Bio Card -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-md flex flex-col">
+<!-- Visual Avatar & Status Banner -->
+<div class="relative w-full h-44 rounded-lg overflow-hidden mb-space-md bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Modern technical developer workspace with dual vertical monitors showcasing syntax-highlighted code in an ambient dusk lighting with soft purple edge illumination, mechanical keyboard and a clean desk setting, cinematic minimalist tech aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4-50cVcatPTxbvR7omFHR3ucSst-fiILEYNA94okkIvqNks1TOtKJXVej25jQJ8RB5miZjskBgetEZLvYYWOPCZ1TI356vZyDAsmQB_3nDt6g6uKUh4dglb5u9tEpIVP9Rqr_zYHwMug0lnF3QkstIum8Hv2yIhlGTolod6QOZsZ2SH8mnAhpJIqv78CVKAqqkzjRHE2QJtVM2seCt62M5deqKBzY-FcZjPl7iftj6P3HGwv5OZmc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-on-error">
+<span class="font-code-sm text-code-sm font-medium tracking-wide">ID: 633_DEV</span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm bg-surface-container-lowest/20 backdrop-blur-md px-2 py-0.5 rounded text-white">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> active
+              </span>
+</div>
+</div>
+<!-- Metadata rows with clean Swiss-like monospaced alignment -->
+<div class="flex flex-col gap-space-sm mb-space-md">
+<div class="flex items-center justify-between py-1 bg-surface-container-low px-space-sm rounded">
+<span class="font-label-sm text-label-sm text-secondary uppercase">Current Focus</span>
+<span class="font-code-sm text-code-sm text-on-surface font-semibold text-right">Backend &amp; Cloud Systems</span>
+</div>
+<div class="flex items-center justify-between py-1 bg-surface-container-low px-space-sm rounded">
+<span class="font-label-sm text-label-sm text-secondary uppercase">Location</span>
+<span class="font-code-sm text-code-sm text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">public</span> Remote
+              </span>
+</div>
+<div class="flex items-center justify-between py-1 bg-surface-container-low px-space-sm rounded">
+<span class="font-label-sm text-label-sm text-secondary uppercase">Status</span>
+<span class="font-code-sm text-code-sm text-primary font-medium">Building &amp; Documenting</span>
+</div>
+</div>
+<!-- Core Philosophy Quote Pane -->
+<div class="p-space-md bg-primary/5 rounded-lg mb-space-md relative">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider block mb-1">
+              Core Philosophy
+            </span>
+<blockquote class="font-code-md text-code-md text-on-surface italic font-medium">
+              “Make it work, make it right, make it fast.”
+            </blockquote>
+<span class="font-label-sm text-label-sm text-secondary block mt-1 text-right">— Kent Beck</span>
+</div>
+<!-- Working Terminal Micro-Widget -->
+<div class="bg-surface-container-highest p-space-sm rounded-lg font-code-sm text-code-sm text-on-surface-variant flex flex-col gap-1">
+<div class="flex items-center justify-between text-secondary">
+<span>uptime: 99.98%</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">latency: 18ms</span>
+</div>
+<div class="w-full bg-outline-variant h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-4/5 rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Connect & Socials Sidebar Card -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">alternate_email</span>
+            Connect &amp; Socials
+          </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+            Whether you want to challenge an architectural assertion, discuss a system bottleneck, or just exchange engineering notes:
+          </p>
+<div class="flex flex-col gap-space-xs">
+<!-- GitHub Item -->
+<a class="group p-space-sm bg-surface-container-low hover:bg-primary-fixed/40 rounded-lg flex items-center justify-between transition-all" href="https://github.com" rel="noreferrer" target="_blank">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-surface-container-lowest flex items-center justify-center text-on-surface group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">code</span>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-secondary">GitHub</div>
+<div class="font-code-sm text-code-sm text-on-surface font-semibold group-hover:text-primary">@dev633</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary text-[16px] group-hover:translate-x-0.5 transition-transform">arrow_outward</span>
+</a>
+<!-- Email Item with Interactive Copy Script -->
+<div class="group p-space-sm bg-surface-container-low hover:bg-primary-fixed/40 rounded-lg flex items-center justify-between cursor-pointer transition-all" id="email-action" title="Click to copy email">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-surface-container-lowest flex items-center justify-center text-on-surface group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-secondary">Direct Dispatch</div>
+<div class="font-code-sm text-code-sm text-on-surface font-semibold group-hover:text-primary" id="email-text">hello@dev633.dev</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary text-[16px] group-hover:text-primary" id="copy-status">content_copy</span>
+</div>
+<!-- RSS Feed Link -->
+<a class="group p-space-sm bg-surface-container-low hover:bg-primary-fixed/40 rounded-lg flex items-center justify-between transition-all" data-path="rss" href="#">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-surface-container-lowest flex items-center justify-center text-on-surface group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">rss_feed</span>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-secondary">Syndication</div>
+<div class="font-code-sm text-code-sm text-on-surface font-semibold group-hover:text-primary">/rss.xml</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary text-[16px] group-hover:translate-x-0.5 transition-transform">arrow_outward</span>
+</a>
+</div>
+</div>
+<!-- Quick Terminal Hint -->
+<div class="p-space-md rounded-xl bg-surface-container text-on-surface-variant flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">lightbulb</span>
+<p class="font-body-sm text-body-sm leading-tight">
+            Prefer raw logs over prose? Check out the engineering write-ups for complete benchmarks.
+          </p>
+</div>
+</aside>
+</div>
+<!-- Contextual Footer Callout (Link to Latest Learnings) -->
+<section class="mt-space-xl pt-space-lg">
+<div class="p-space-lg md:p-space-xl rounded-xl bg-surface-container-lowest shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg relative overflow-hidden">
+<div class="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-primary/5 to-transparent pointer-events-none"></div>
+<div class="max-w-xl">
+<div class="inline-flex items-center gap-1.5 font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider mb-space-xs">
+<span class="material-symbols-outlined text-[16px]">folder_open</span>
+            Knowledge Vault
+          </div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold mb-space-xs">
+            Read the latest technical discoveries &amp; post-mortems
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Explore deep dives on database isolation bugs, concurrent race condition triage, and lightweight cloud deployments.
+          </p>
+</div>
+<a class="inline-flex items-center gap-space-xs px-space-lg py-space-sm bg-primary text-on-primary font-headline-sm text-body-md font-medium rounded-lg shadow-sm hover:bg-tertiary transition-colors flex-shrink-0 group" data-path="learnings" href="#">
+<span>Browse Learnings</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</section>
+</div>
+<!-- Inline Script for Micro-Interactions -->
+<script>
+    (function() {
+      const emailContainer = document.getElementById('email-action');
+      const copyStatus = document.getElementById('copy-status');
+      
+      if (emailContainer && copyStatus) {
+        emailContainer.addEventListener('click', function() {
+          const email = 'hello@dev633.dev';
+          navigator.clipboard.writeText(email).then(() => {
+            copyStatus.innerText = 'done';
+            copyStatus.classList.add('text-primary');
+            setTimeout(() => {
+              copyStatus.innerText = 'content_copy';
+              copyStatus.classList.remove('text-primary');
+            }, 2000);
+          }).catch(() => {
+            window.location.href = 'mailto:' + email;
+          });
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-surface-variant py-space-xl"><div class="max-w-5xl mx-auto px-gutter-mobile md:px-gutter"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg pb-space-lg border-b border-surface-variant"><div class="max-w-md"><div class="flex items-center gap-space-xs mb-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Dev<span class="text-primary font-bold">633</span></span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Building software. Learning continuously. Sharing what works.</p></div><nav class="flex flex-wrap items-center gap-x-space-lg gap-y-space-xs"><a class="font-code-sm text-code-sm text-on-surface-variant hover:text-primary transition-colors" data-path="learnings" href="#">Learnings</a><a class="font-code-sm text-code-sm text-on-surface-variant hover:text-primary transition-colors" data-path="projects" href="#">Projects</a><a class="font-code-sm text-code-sm text-on-surface-variant hover:text-primary transition-colors" data-path="about" href="#">About</a><a class="font-code-sm text-code-sm text-on-surface-variant hover:text-primary transition-colors" href="https://github.com" rel="noreferrer" target="_blank">GitHub</a><a class="font-code-sm text-code-sm text-on-surface-variant hover:text-primary transition-colors" data-path="rss" href="#">RSS</a></nav></div><div class="pt-space-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm font-label-sm text-label-sm text-secondary"><p>© 2026 Dev633. Handcrafted with markdown &amp; static architecture.</p><span class="font-code-sm text-code-sm text-secondary">sys.status: optimal</span></div></div></footer></body></html>

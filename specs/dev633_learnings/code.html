@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "outline": "#7b7487", "inverse-on-surface": "#f3f0f4", "on-tertiary-container": "#ede1ff", "on-error": "#ffffff", "primary": "#630ed4", "on-error-container": "#93000a", "on-primary-container": "#ede0ff", "secondary-container": "#e4e0f5", "surface-container-highest": "#e4e1e6", "surface-container-lowest": "#ffffff", "surface-tint": "#732ee4", "surface-variant": "#e4e1e6", "inverse-primary": "#d2bbff", "primary-fixed-dim": "#d2bbff", "on-secondary-container": "#646274", "on-surface": "#1b1b1e", "surface-container-low": "#f6f2f7", "tertiary": "#6129bc", "surface": "#fbf8fc", "on-primary-fixed-variant": "#5a00c6", "on-tertiary-fixed": "#250059", "on-background": "#1b1b1e", "inverse-surface": "#303033", "secondary-fixed": "#e4e0f5", "secondary": "#5e5c6e", "on-tertiary-fixed-variant": "#581db3", "on-secondary": "#ffffff", "on-primary-fixed": "#25005a", "tertiary-fixed-dim": "#d3bbff", "primary-container": "#7c3aed", "on-primary": "#ffffff", "primary-fixed": "#eaddff", "surface-container": "#f0edf1", "surface-container-high": "#eae7eb", "error": "#ba1a1a", "tertiary-fixed": "#ebddff", "tertiary-container": "#7a47d5", "outline-variant": "#ccc3d8", "on-surface-variant": "#4a4455", "background": "#fbf8fc", "surface-bright": "#fbf8fc", "on-secondary-fixed-variant": "#464555", "secondary-fixed-dim": "#c7c4d8", "surface-dim": "#dcd9dd", "on-secondary-fixed": "#1b1a29", "on-tertiary": "#ffffff", "error-container": "#ffdad6" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "gutter": "1.5rem", "space-md": "1rem", "margin-mobile": "1.25rem", "margin": "2rem", "space-sm": "0.5rem", "space-xl": "2.5rem", "space-lg": "1.5rem", "gutter-mobile": "1rem" }, "fontFamily": { "label-md": [ "JetBrains Mono" ], "headline-sm": [ "Geist" ], "headline-md": [ "Geist" ], "code-sm": [ "JetBrains Mono" ], "headline-xl": [ "Geist" ], "headline-lg-mobile": [ "Geist" ], "body-lg": [ "Geist" ], "headline-lg": [ "Geist" ], "label-sm": [ "JetBrains Mono" ], "body-sm": [ "Geist" ], "body-md": [ "Geist" ], "code-md": [ "JetBrains Mono" ], "headline-xl-mobile": [ "Geist" ] }, "fontSize": { "label-md": [ "13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" } ], "headline-sm": [ "18px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "headline-md": [ "24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" } ], "code-sm": [ "12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" } ], "headline-xl": [ "48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "700" } ], "headline-lg-mobile": [ "26px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "body-lg": [ "18px", { "lineHeight": "30px", "letterSpacing": "-0.005em", "fontWeight": "400" } ], "headline-lg": [ "36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "600" } ], "label-sm": [ "11px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" } ], "body-sm": [ "14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" } ], "body-md": [ "16px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" } ], "code-md": [ "14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" } ], "headline-xl-mobile": [ "32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" } ] } } } };</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest/80 backdrop-blur-xl border-b border-surface-variant"><div class="h-16 max-w-5xl mx-auto px-gutter-mobile md:px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-xs" data-path="home" href="#"><img alt="Dev633 Wordmark Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1W4aV3Vi_JUxxxdRmygzswZ5_tRAMlkup6UTh4FwKzTvojXiGwWHBs2co1W4i40YVT5EScdCS2wTWGAcwgNRx_sBIE2Jpdtce1WupHjRg76dXcWaYga7v4J0LTPwwF5-GMn9PQtzv1etPRhRARgm0hHBp9fZ4rW_ug52NtKHSOm8OCKa_bvDivzW8sXC8ULTCy20mZXimK9AYeBlrV-67oavWGzQOr8TBFnGXA1ggfdiYn4Ucl7_ZL4-_c"/><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface font-semibold">Dev<span class="text-primary font-bold">633</span></span></a></div><nav class="hidden md:flex items-center gap-space-lg" data-active-classes="text-primary font-semibold"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="home" href="#">Home</a><a aria-current="page" class="transition-colors text-primary font-semibold" data-path="learnings" href="#">Learnings</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="projects" href="#">Projects</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#">About</a></nav><div class="flex items-center gap-space-sm"><a aria-label="GitHub Profile" class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" href="https://github.com" rel="noreferrer" target="_blank"><span class="material-symbols-outlined text-[20px]">code</span></a><button aria-label="Toggle color mode" class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" type="button"><span class="material-symbols-outlined text-[20px]">light_mode</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 min-h-screen bg-background"><div class="flex flex-col w-full">
+<div class="relative w-full overflow-hidden bg-surface-container-low py-space-xl">
+<div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-primary/5 blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-24 -left-16 w-80 h-80 rounded-full bg-tertiary-container/5 blur-2xl pointer-events-none"></div>
+<div class="max-w-5xl mx-auto px-gutter-mobile md:px-gutter relative z-10">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-lg">
+<div class="space-y-space-xs max-w-2xl">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-code-sm text-code-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+              dev633.log
+            </span>
+<span class="font-code-sm text-code-sm text-secondary">v2.8.4</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface font-bold tracking-tight">Learnings</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+            Notes, lessons, experiments, and architectural insights worth keeping intact.
+          </p>
+</div>
+<div class="flex items-center gap-space-sm p-space-sm rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="flex flex-col px-space-sm">
+<span class="font-code-sm text-code-sm text-secondary uppercase tracking-wider">Entries</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">24</span>
+</div>
+<div class="w-px h-8 bg-surface-variant"></div>
+<div class="flex flex-col px-space-sm">
+<span class="font-code-sm text-code-sm text-secondary uppercase tracking-wider">Topics</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">8</span>
+</div>
+<div class="w-px h-8 bg-surface-variant"></div>
+<div class="flex flex-col px-space-sm">
+<span class="font-code-sm text-code-sm text-secondary uppercase tracking-wider">Status</span>
+<span class="inline-flex items-center gap-1 font-code-sm text-code-sm text-primary font-medium">
+<span class="material-symbols-outlined text-[14px]">auto_stories</span>
+              syncing
+            </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-5xl mx-auto px-gutter-mobile md:px-gutter py-space-xl w-full">
+<div class="space-y-space-md mb-space-xl">
+<div class="relative w-full">
+<div class="absolute inset-y-0 left-0 pl-space-md flex items-center pointer-events-none text-secondary">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="w-full h-12 pl-11 pr-32 bg-surface-container-lowest text-on-surface rounded-xl placeholder:text-on-surface-variant font-body-md text-body-md focus:outline-none focus:bg-surface-container-lowest shadow-sm transition-all" id="article-search" placeholder="Search articles, topics, or code snippets..." type="text"/>
+<div class="absolute inset-y-0 right-0 pr-space-md flex items-center gap-1 pointer-events-none">
+<kbd class="hidden sm:inline-flex items-center gap-0.5 px-2 py-1 rounded bg-surface-container text-on-surface-variant font-code-sm text-code-sm">
+<span>⌘</span>K
+          </kbd>
+</div>
+</div>
+<div class="flex items-center gap-space-xs overflow-x-auto pb-space-xs no-scrollbar">
+<button class="topic-chip px-3.5 py-1.5 rounded-full font-code-sm text-code-sm transition-all whitespace-nowrap bg-on-primary-container text-primary font-semibold shadow-sm" data-category="All">
+          All <span class="opacity-70">(24)</span>
+</button>
+<button class="topic-chip px-3.5 py-1.5 rounded-full font-code-sm text-code-sm transition-all whitespace-nowrap bg-surface-container text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface" data-category="Backend">
+          Backend
+        </button>
+<button class="topic-chip px-3.5 py-1.5 rounded-full font-code-sm text-code-sm transition-all whitespace-nowrap bg-surface-container text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface" data-category="Frontend">
+          Frontend
+        </button>
+<button class="topic-chip px-3.5 py-1.5 rounded-full font-code-sm text-code-sm transition-all whitespace-nowrap bg-surface-container text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface" data-category="Database">
+          Database
+        </button>
+<button class="topic-chip px-3.5 py-1.5 rounded-full font-code-sm text-code-sm transition-all whitespace-nowrap bg-surface-container text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface" data-category="DevOps">
+          DevOps
+        </button>
+<button class="topic-chip px-3.5 py-1.5 rounded-full font-code-sm text-code-sm transition-all whitespace-nowrap bg-surface-container text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface" data-category="Architecture">
+          Architecture
+        </button>
+<button class="topic-chip px-3.5 py-1.5 rounded-full font-code-sm text-code-sm transition-all whitespace-nowrap bg-surface-container text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface" data-category="Security">
+          Security
+        </button>
+<button class="topic-chip px-3.5 py-1.5 rounded-full font-code-sm text-code-sm transition-all whitespace-nowrap bg-surface-container text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface" data-category="Career">
+          Career
+        </button>
+<button class="topic-chip px-3.5 py-1.5 rounded-full font-code-sm text-code-sm transition-all whitespace-nowrap bg-surface-container text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface" data-category="Experiments">
+          Experiments
+        </button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<div class="lg:col-span-8 flex flex-col space-y-space-md" id="articles-container">
+<article class="article-item group p-space-lg rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all duration-200" data-category="Backend">
+<div class="flex flex-col space-y-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-code-sm text-code-sm font-medium">Java</span>
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-code-sm text-code-sm font-medium">Spring Boot</span>
+<span class="px-2 py-0.5 rounded bg-on-primary-container text-primary font-code-sm text-code-sm font-medium">Backend</span>
+</div>
+<div class="flex items-center gap-2 text-secondary font-code-sm text-code-sm">
+<time datetime="2026-09-11">Sept 11, 2026</time>
+<span>•</span>
+<span>7 min read</span>
+</div>
+</div>
+<div class="space-y-space-xs">
+<a class="inline-block" href="#">
+<h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors font-semibold leading-snug">
+                  Mastering Spring Boot 3 Observability with OpenTelemetry
+                </h2>
+</a>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                A deep dive into distributed tracing, custom span exporters, and Grafana Tempo integration in production.
+              </p>
+</div>
+<div class="pt-space-xs flex items-center justify-between font-code-sm text-code-sm text-secondary">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">terminal</span>otel-javaagent</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">stacked_line_chart</span>Tempo</span>
+</div>
+<span class="inline-flex items-center gap-1 text-primary group-hover:translate-x-1 transition-transform">
+                Read entry
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</span>
+</div>
+</div>
+</article>
+<article class="article-item group p-space-lg rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all duration-200" data-category="Database Architecture">
+<div class="flex flex-col space-y-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-code-sm text-code-sm font-medium">PostgreSQL</span>
+<span class="px-2 py-0.5 rounded bg-on-primary-container text-primary font-code-sm text-code-sm font-medium">Database</span>
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-code-sm text-code-sm font-medium">Architecture</span>
+</div>
+<div class="flex items-center gap-2 text-secondary font-code-sm text-code-sm">
+<time datetime="2026-08-28">Aug 28, 2026</time>
+<span>•</span>
+<span>5 min read</span>
+</div>
+</div>
+<div class="space-y-space-xs">
+<a class="inline-block" href="#">
+<h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors font-semibold leading-snug">
+                  Zero-Downtime Database Migrations in PostgreSQL
+                </h2>
+</a>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Safe schema migrations: adding columns with default values, concurrent index creation, and table partition swaps.
+              </p>
+</div>
+<div class="pt-space-xs flex items-center justify-between font-code-sm text-code-sm text-secondary">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">lock_reset</span>CONCURRENTLY</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">database</span>pg_stat_activity</span>
+</div>
+<span class="inline-flex items-center gap-1 text-primary group-hover:translate-x-1 transition-transform">
+                Read entry
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</span>
+</div>
+</div>
+</article>
+<article class="article-item group p-space-lg rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all duration-200" data-category="Frontend">
+<div class="flex flex-col space-y-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-code-sm text-code-sm font-medium">Vue</span>
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-code-sm text-code-sm font-medium">TypeScript</span>
+<span class="px-2 py-0.5 rounded bg-on-primary-container text-primary font-code-sm text-code-sm font-medium">Frontend</span>
+</div>
+<div class="flex items-center gap-2 text-secondary font-code-sm text-code-sm">
+<time datetime="2026-08-14">Aug 14, 2026</time>
+<span>•</span>
+<span>6 min read</span>
+</div>
+</div>
+<div class="space-y-space-xs">
+<a class="inline-block" href="#">
+<h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors font-semibold leading-snug">
+                  Building Resilient Frontends with Vue 3 and Event-Driven State
+                </h2>
+</a>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Structuring modular composables, strict TypeScript boundaries, and offline caching patterns.
+              </p>
+</div>
+<div class="pt-space-xs flex items-center justify-between font-code-sm text-code-sm text-secondary">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">widgets</span>Pinia Store</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">wifi_off</span>Cache-First</span>
+</div>
+<span class="inline-flex items-center gap-1 text-primary group-hover:translate-x-1 transition-transform">
+                Read entry
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</span>
+</div>
+</div>
+</article>
+<article class="article-item group p-space-lg rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all duration-200" data-category="DevOps Security">
+<div class="flex flex-col space-y-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-code-sm text-code-sm font-medium">Docker</span>
+<span class="px-2 py-0.5 rounded bg-on-primary-container text-primary font-code-sm text-code-sm font-medium">DevOps</span>
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-code-sm text-code-sm font-medium">Security</span>
+</div>
+<div class="flex items-center gap-2 text-secondary font-code-sm text-code-sm">
+<time datetime="2026-07-30">July 30, 2026</time>
+<span>•</span>
+<span>8 min read</span>
+</div>
+</div>
+<div class="space-y-space-xs">
+<a class="inline-block" href="#">
+<h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors font-semibold leading-snug">
+                  Hardening Docker Containers: Least Privilege &amp; Rootless Daemons
+                </h2>
+</a>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Practical hardening guides for multi-stage Dockerfiles, seccomp profiles, and non-root UID enforcement.
+              </p>
+</div>
+<div class="pt-space-xs flex items-center justify-between font-code-sm text-code-sm text-secondary">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">shield</span>seccomp.json</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">security</span>UID 10001</span>
+</div>
+<span class="inline-flex items-center gap-1 text-primary group-hover:translate-x-1 transition-transform">
+                Read entry
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</span>
+</div>
+</div>
+</article>
+<article class="article-item group p-space-lg rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all duration-200" data-category="Architecture Backend">
+<div class="flex flex-col space-y-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-on-primary-container text-primary font-code-sm text-code-sm font-medium">Architecture</span>
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-code-sm text-code-sm font-medium">Backend</span>
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-code-sm text-code-sm font-medium">Java</span>
+</div>
+<div class="flex items-center gap-2 text-secondary font-code-sm text-code-sm">
+<time datetime="2026-07-12">July 12, 2026</time>
+<span>•</span>
+<span>9 min read</span>
+</div>
+</div>
+<div class="space-y-space-xs">
+<a class="inline-block" href="#">
+<h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors font-semibold leading-snug">
+                  Designing Event-Driven Microservices with RabbitMQ &amp; Outbox Pattern
+                </h2>
+</a>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Eliminating dual-write anomalies using transactional outbox tables and Debezium change data capture.
+              </p>
+</div>
+<div class="pt-space-xs flex items-center justify-between font-code-sm text-code-sm text-secondary">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">sync_alt</span>CDC Engine</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">inventory_2</span>At-Least-Once</span>
+</div>
+<span class="inline-flex items-center gap-1 text-primary group-hover:translate-x-1 transition-transform">
+                Read entry
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</span>
+</div>
+</div>
+</article>
+<article class="article-item group p-space-lg rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all duration-200" data-category="Backend">
+<div class="flex flex-col space-y-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-code-sm text-code-sm font-medium">Java</span>
+<span class="px-2 py-0.5 rounded bg-on-primary-container text-primary font-code-sm text-code-sm font-medium">Backend</span>
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-code-sm text-code-sm font-medium">Performance</span>
+</div>
+<div class="flex items-center gap-2 text-secondary font-code-sm text-code-sm">
+<time datetime="2026-06-22">June 22, 2026</time>
+<span>•</span>
+<span>6 min read</span>
+</div>
+</div>
+<div class="space-y-space-xs">
+<a class="inline-block" href="#">
+<h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors font-semibold leading-snug">
+                  Demystifying Memory Allocations and GC in Modern Java
+                </h2>
+</a>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Comparing ZGC vs Shenandoah GC pauses on high-throughput backend workloads.
+              </p>
+</div>
+<div class="pt-space-xs flex items-center justify-between font-code-sm text-code-sm text-secondary">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">speed</span>&lt;1ms Pause</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">memory</span>Heap Analysis</span>
+</div>
+<span class="inline-flex items-center gap-1 text-primary group-hover:translate-x-1 transition-transform">
+                Read entry
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</span>
+</div>
+</div>
+</article>
+</div>
+<div class="lg:col-span-4 flex flex-col space-y-space-lg">
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Writing Frequency</h3>
+<span class="font-code-sm text-code-sm text-secondary">2026 YTD</span>
+</div>
+<div class="space-y-2">
+<div class="flex items-center justify-between font-code-sm text-code-sm">
+<span class="text-on-surface-variant">Backend Systems</span>
+<span class="text-on-surface font-medium">11 posts (46%)</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full rounded-full bg-primary" style="width: 46%;"></div>
+</div>
+<div class="flex items-center justify-between font-code-sm text-code-sm pt-1">
+<span class="text-on-surface-variant">Architecture</span>
+<span class="text-on-surface font-medium">6 posts (25%)</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full rounded-full bg-tertiary-container" style="width: 25%;"></div>
+</div>
+<div class="flex items-center justify-between font-code-sm text-code-sm pt-1">
+<span class="text-on-surface-variant">DevOps &amp; Security</span>
+<span class="text-on-surface font-medium">4 posts (17%)</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full rounded-full bg-secondary" style="width: 17%;"></div>
+</div>
+<div class="flex items-center justify-between font-code-sm text-code-sm pt-1">
+<span class="text-on-surface-variant">Frontend Experiments</span>
+<span class="text-on-surface font-medium">3 posts (12%)</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full rounded-full bg-outline-variant" style="width: 12%;"></div>
+</div>
+</div>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm space-y-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">terminal</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Recent Snippet</h3>
+</div>
+<div class="rounded-lg bg-inverse-surface p-space-sm text-inverse-on-surface font-code-sm text-code-sm space-y-1 overflow-x-auto">
+<div class="text-secondary select-none">// Safe index creation in PG</div>
+<div><span class="text-inverse-primary">CREATE INDEX CONCURRENTLY</span></div>
+<div>idx_orders_customer_id</div>
+<div><span class="text-inverse-primary">ON</span> orders (customer_id);</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Zero-lock production migration pattern tested on PostgreSQL 16.
+          </p>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-container-high space-y-space-sm">
+<div class="flex items-center gap-2 text-primary font-code-sm text-code-sm font-semibold">
+<span class="material-symbols-outlined text-[18px]">rss_feed</span>
+            STAY UPDATED
+          </div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Engineering feed</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Technical summaries delivered when new architecture patterns or postmortems drop.
+          </p>
+<div class="pt-space-xs">
+<div class="flex gap-2">
+<input class="w-full h-10 px-3 rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant font-code-sm text-code-sm focus:outline-none" placeholder="dev@domain.com" type="email"/>
+<button class="px-4 h-10 rounded-lg bg-primary text-on-primary font-body-sm text-body-sm font-medium hover:bg-primary-container transition-colors whitespace-nowrap">
+                Subscribe
+              </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-xl pt-space-lg flex flex-col items-center justify-center space-y-space-sm text-center">
+<div class="font-code-sm text-code-sm text-secondary">
+        Showing <span class="font-semibold text-on-surface" id="visible-count">6</span> of 24 articles
+      </div>
+<div class="w-48 h-1.5 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-300" id="progress-indicator" style="width: 25%;"></div>
+</div>
+<button class="mt-space-xs inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container-high font-body-sm text-body-sm font-medium transition-all shadow-sm" id="load-more-btn">
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+        Load older notes
+      </button>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    const searchInput = document.getElementById('article-search');
+    const articles = document.querySelectorAll('.article-item');
+    const chips = document.querySelectorAll('.topic-chip');
+    const countDisplay = document.getElementById('visible-count');
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    const progressIndicator = document.getElementById('progress-indicator');
+    
+    let activeCategory = 'All';
+
+    function filterEntries() {
+      const term = (searchInput?.value || '').toLowerCase().trim();
+      let matchCount = 0;
+
+      articles.forEach(article => {
+        const text = article.innerText.toLowerCase();
+        const categoryData = article.getAttribute('data-category') || '';
+        
+        const matchesCategory = activeCategory === 'All' || categoryData.toLowerCase().includes(activeCategory.toLowerCase());
+        const matchesSearch = term === '' || text.includes(term);
+
+        if (matchesCategory && matchesSearch) {
+          article.style.display = 'block';
+          matchCount++;
+        } else {
+          article.style.display = 'none';
+        }
+      });
+
+      if (countDisplay) {
+        countDisplay.textContent = matchCount.toString();
+      }
+      if (progressIndicator) {
+        const percentage = Math.min(100, Math.round((matchCount / 24) * 100));
+        progressIndicator.style.width = percentage + '%';
+      }
+    }
+
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => {
+          c.classList.remove('bg-on-primary-container', 'text-primary', 'font-semibold', 'shadow-sm');
+          c.classList.add('bg-surface-container', 'text-on-surface-variant');
+        });
+        chip.classList.remove('bg-surface-container', 'text-on-surface-variant');
+        chip.classList.add('bg-on-primary-container', 'text-primary', 'font-semibold', 'shadow-sm');
+
+        activeCategory = chip.getAttribute('data-category') || 'All';
+        filterEntries();
+      });
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', filterEntries);
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        searchInput?.focus();
+      }
+    });
+
+    if (loadMoreBtn) {
+      loadMoreBtn.addEventListener('click', function() {
+        const originalText = this.innerHTML;
+        this.innerHTML = '<span class="material-symbols-outlined animate-spin text-[18px]">progress_activity</span> Fetching entries...';
+        this.disabled = true;
+
+        setTimeout(() => {
+          this.innerHTML = '<span class="material-symbols-outlined text-[18px]">check</span> All current archives loaded';
+          if (countDisplay) countDisplay.textContent = '24';
+          if (progressIndicator) progressIndicator.style.width = '100%';
+        }, 800);
+      });
+    }
+  })();
+</script></main><footer class="w-full bg-surface-container-lowest border-t border-surface-variant py-space-xl"><div class="max-w-5xl mx-auto px-gutter-mobile md:px-gutter"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg pb-space-lg border-b border-surface-variant"><div class="max-w-md"><div class="flex items-center gap-space-xs mb-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Dev<span class="text-primary font-bold">633</span></span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Building software. Learning continuously. Sharing what works.</p></div><nav class="flex flex-wrap items-center gap-x-space-lg gap-y-space-xs"><a class="font-code-sm text-code-sm text-on-surface-variant hover:text-primary transition-colors" data-path="learnings" href="#">Learnings</a><a class="font-code-sm text-code-sm text-on-surface-variant hover:text-primary transition-colors" data-path="projects" href="#">Projects</a><a class="font-code-sm text-code-sm text-on-surface-variant hover:text-primary transition-colors" data-path="about" href="#">About</a><a class="font-code-sm text-code-sm text-on-surface-variant hover:text-primary transition-colors" href="https://github.com" rel="noreferrer" target="_blank">GitHub</a><a class="font-code-sm text-code-sm text-on-surface-variant hover:text-primary transition-colors" data-path="rss" href="#">RSS</a></nav></div><div class="pt-space-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm font-label-sm text-label-sm text-secondary"><p>© 2026 Dev633. Handcrafted with markdown &amp; static architecture.</p><span class="font-code-sm text-code-sm text-secondary">sys.status: optimal</span></div></div></footer></body></html>
