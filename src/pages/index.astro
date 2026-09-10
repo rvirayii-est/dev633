@@ -1,0 +1,267 @@
+---
+import HeroTerminal from '../components/HeroTerminal.astro';
+import Icon from '../components/Icon.astro';
+import LearningCard from '../components/LearningCard.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { CURRENTLY_EXPLORING, SITE, STACK } from '../data/site';
+import { getLearnings, getProjects } from '../utils/content';
+
+const learnings = (await getLearnings()).slice(0, 3);
+const allProjects = await getProjects();
+const featured = allProjects.filter((p) => p.data.featured).slice(0, 3);
+const projects = featured.length > 0 ? featured : allProjects.slice(0, 3);
+---
+
+<BaseLayout title={SITE.name} description={SITE.description}>
+  <div class="container page">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">
+          <span class="dot"></span>Software Developer • Building • Learning • Sharing
+        </p>
+        <h1>I build software and document what I learn.</h1>
+        <p class="lede">{SITE.description}</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/learnings">
+            Read my learnings
+            <Icon name="arrow-right" size={16} />
+          </a>
+          <a class="btn btn-secondary" href="/projects">View projects</a>
+        </div>
+      </div>
+      <div class="hero-visual"><HeroTerminal /></div>
+    </section>
+
+    <section class="exploring panel">
+      <h2><span class="dot"></span>Currently Exploring</h2>
+      <ul class="topics">
+        {CURRENTLY_EXPLORING.map((topic) => <li>{topic}</li>)}
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2><Icon name="book" size={20} />Latest Learnings</h2>
+        <a class="link-accent" href="/learnings">
+          View all learnings
+          <Icon name="arrow-right" size={14} />
+        </a>
+      </div>
+      {
+        learnings.length > 0 ? (
+          <div class="grid grid-3">
+            {learnings.map((entry) => (
+              <LearningCard entry={entry} />
+            ))}
+          </div>
+        ) : (
+          <p class="muted">No entries published yet.</p>
+        )
+      }
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2><Icon name="layers" size={20} />Things I've Built</h2>
+        <a class="link-accent" href="/projects">
+          Explore all projects
+          <Icon name="arrow-right" size={14} />
+        </a>
+      </div>
+      <div class="grid grid-3">
+        {projects.map((entry, i) => <ProjectCard entry={entry} index={i + 1} />)}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2><Icon name="cpu" size={20} />Technology I Work With</h2>
+      </div>
+      <div class="grid grid-3 stack-grid">
+        {
+          STACK.map((group) => (
+            <div class="panel stack-group">
+              <p class="stack-head">
+                <span class="dot" />
+                {group.title}
+                <span class="idx">{group.index}</span>
+              </p>
+              <p class="chips">
+                {group.items.map((item) => (
+                  <span class="chip">{item}</span>
+                ))}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="cta panel">
+      <span class="cta-icon" aria-hidden="true"><Icon name="code" size={18} /></span>
+      <div class="cta-copy">
+        <h2>Open source enthusiast.</h2>
+        <p class="muted">You can read the raw source and experiments directly on GitHub.</p>
+      </div>
+      <a class="btn btn-secondary cta-link" href={SITE.github} target="_blank" rel="noreferrer noopener">
+        {SITE.github.replace('https://', '')}
+        <Icon name="arrow-up-right" size={14} />
+      </a>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    padding-block: var(--space-xl);
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+    max-width: 34rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-xs);
+  }
+
+  .hero-visual {
+    min-width: 0;
+  }
+
+  .exploring {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .exploring h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 1.0625rem;
+  }
+
+  .topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    list-style: none;
+  }
+
+  .topics li {
+    padding: 0.25rem 0.625rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .stack-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+  }
+
+  .stack-head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 0.9375rem;
+    font-weight: 600;
+  }
+
+  .idx {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--text-faint);
+  }
+
+  .cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .cta-icon {
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius);
+    background: var(--accent-soft);
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .cta-copy {
+    flex: 1 1 16rem;
+  }
+
+  .cta-copy h2 {
+    font-size: 1.0625rem;
+  }
+
+  .cta-copy p {
+    font-size: 0.9375rem;
+  }
+
+  .cta-link {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    overflow-wrap: anywhere;
+  }
+
+  @media (min-width: 768px) {
+    .hero h1 {
+      font-size: 3rem;
+      line-height: 1.08;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-2xl);
+    }
+    .hero-visual {
+      width: 24rem;
+      flex-shrink: 0;
+    }
+    .exploring {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+</style>

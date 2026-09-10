@@ -1,0 +1,85 @@
+---
+import Icon from '../../components/Icon.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../data/site';
+import { getProjects } from '../../utils/content';
+
+const projects = await getProjects();
+const statuses = new Set(projects.map((p) => p.data.status));
+---
+
+<BaseLayout
+  title="Projects"
+  description="Software I've built, experiments I've tried, and systems I've learned from."
+>
+  <PageHeader
+    eyebrow="archive // system index"
+    title="Projects"
+    description="Software I've built, experiments I've tried, and systems I've learned from."
+    stats={[
+      { label: 'Case studies', value: String(projects.length) },
+      { label: 'Statuses', value: String(statuses.size), accent: true },
+    ]}
+  />
+
+  <div class="container page">
+    <div class="grid grid-2">
+      {projects.map((entry, i) => <ProjectCard entry={entry} index={i + 1} />)}
+    </div>
+
+    <section class="cta panel">
+      <span class="cta-icon" aria-hidden="true"><Icon name="compass" size={18} /></span>
+      <div class="cta-copy">
+        <h2>Looking for smaller code experiments?</h2>
+        <p class="muted">
+          Prototypes and throwaway spikes that never became case studies live in the repositories.
+        </p>
+      </div>
+      <a class="btn btn-secondary" href={SITE.github} target="_blank" rel="noreferrer noopener">
+        Browse GitHub
+        <Icon name="arrow-up-right" size={14} />
+      </a>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    padding-block: var(--space-xl);
+  }
+
+  .cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .cta-icon {
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius);
+    background: var(--accent-soft);
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .cta-copy {
+    flex: 1 1 16rem;
+  }
+
+  .cta-copy h2 {
+    font-size: 1.0625rem;
+  }
+
+  .cta-copy p {
+    font-size: 0.9375rem;
+  }
+</style>

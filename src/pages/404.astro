@@ -1,0 +1,44 @@
+---
+import Icon from '../components/Icon.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="404 — Not found" description="This route does not exist." noindex>
+  <div class="container wrap">
+    <p class="eyebrow"><span class="dot"></span>HTTP 404</p>
+    <h1>This route does not exist.</h1>
+    <p class="lede">
+      The page was moved, renamed, or never existed. The archive is a good place to restart.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="/learnings">
+        Browse learnings
+        <Icon name="arrow-right" size={16} />
+      </a>
+      <a class="btn btn-secondary" href="/">Back home</a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+    padding-block: var(--space-2xl);
+    max-width: 34rem;
+  }
+
+  h1 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+</style>

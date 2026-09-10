@@ -1,0 +1,431 @@
+---
+import Icon from '../components/Icon.astro';
+import PageHeader from '../components/PageHeader.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE, STACK } from '../data/site';
+
+const principles = [
+  {
+    icon: 'check-circle' as const,
+    title: 'Clarity over cleverness',
+    body: 'Readable, self-describing code. Five plain lines beat one cryptic expression that has to be decoded later.',
+  },
+  {
+    icon: 'clock' as const,
+    title: 'Tight feedback loops',
+    body: 'Fast unit tests, automated pipelines, and observability wired in early so problems surface before users do.',
+  },
+  {
+    icon: 'layers' as const,
+    title: 'Continuous refactoring',
+    body: 'Codebases rot without pruning. Incremental cleanup during feature work keeps debt from compounding.',
+  },
+  {
+    icon: 'cpu' as const,
+    title: 'Write it down',
+    body: 'A fix that is only in my head is a fix I will re-derive next year. That is what this site exists for.',
+  },
+];
+---
+
+<BaseLayout
+  title="About"
+  description="Software engineer, continuous learner, and builder of real-world systems."
+>
+  <PageHeader
+    eyebrow="system.bio // root"
+    title="About"
+    description="Software engineer, continuous learner, and builder of real-world systems."
+  />
+
+  <div class="container page">
+    <div class="columns">
+      <div class="main">
+        <section class="panel intro">
+          <h2>Hey there, I'm the developer behind <span class="accent">Dev633</span>.</h2>
+          <p class="muted">
+            I build backend services and the interfaces that sit on top of them. Most of my
+            work involves Java and Spring Boot on the server, a typed Vue or Astro frontend, and
+            PostgreSQL underneath, packaged with Docker and deployed behind a reverse proxy.
+          </p>
+          <p class="chips">
+            <span class="chip chip-neutral">bash, zsh, vim</span>
+            <span class="chip chip-neutral">backend-leaning full stack</span>
+            <span class="chip chip-neutral">self-hosting</span>
+          </p>
+        </section>
+
+        <section class="panel">
+          <h2><Icon name="database" size={18} />Building software</h2>
+          <p class="muted">
+            My engineering interest sits where distributed backends meet deliberate interface
+            design: request lifecycles, transaction boundaries, failure modes, and the parts of a
+            system that only misbehave under real load. I care about services that degrade
+            gracefully rather than collapse, and about frontends that stay honest about latency.
+          </p>
+        </section>
+
+        <section class="panel">
+          <h2><Icon name="book" size={18} />Continuous learning</h2>
+          <p class="muted">
+            Dev633 exists because too much hard-won detail evaporates. Debugging sessions, subtle
+            race conditions, and protocol gotchas get solved once and then forgotten. Writing them
+            down as short, structured notes turns a one-time fix into something reusable.
+          </p>
+          <p class="muted">
+            If I solve it once, it belongs in <a href="/learnings">the learnings archive</a>.
+          </p>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <h2><Icon name="compass" size={20} />How I work</h2>
+          </div>
+          <div class="grid grid-2">
+            {
+              principles.map((item) => (
+                <div class="card principle">
+                  <p class="principle-title">
+                    <Icon name={item.icon} size={15} />
+                    {item.title}
+                  </p>
+                  <p class="muted">{item.body}</p>
+                </div>
+              ))
+            }
+          </div>
+        </section>
+      </div>
+
+      <aside class="side">
+        <section class="panel side-card">
+          <p class="rail-title">Profile</p>
+          <dl class="facts">
+            <div><dt>Focus</dt><dd>Backend &amp; cloud systems</dd></div>
+            <div><dt>Frontend</dt><dd>Vue 3, TypeScript, Astro</dd></div>
+            <div><dt>Status</dt><dd class="accent">Building &amp; documenting</dd></div>
+          </dl>
+          <blockquote>
+            "Make it work, make it right, make it fast."
+            <cite>— Kent Beck</cite>
+          </blockquote>
+        </section>
+
+        <section class="panel side-card">
+          <p class="rail-title">Connect</p>
+          <p class="muted">
+            Happy to talk architecture, trade-offs, or anything in the notes.
+          </p>
+          <a class="contact" href={SITE.github} target="_blank" rel="noreferrer noopener">
+            <Icon name="github" size={15} />
+            <span>
+              <strong>GitHub</strong>
+              <span class="mono">{SITE.githubHandle}</span>
+            </span>
+            <Icon name="arrow-up-right" size={13} />
+          </a>
+          <a class="contact" href={`mailto:${SITE.email}`}>
+            <Icon name="mail" size={15} />
+            <span>
+              <strong>Email</strong>
+              <span class="mono break-anywhere">{SITE.email}</span>
+            </span>
+            <Icon name="arrow-up-right" size={13} />
+          </a>
+          <a class="contact" href="/rss.xml">
+            <Icon name="rss" size={15} />
+            <span>
+              <strong>Syndication</strong>
+              <span class="mono">/rss.xml</span>
+            </span>
+            <Icon name="arrow-right" size={13} />
+          </a>
+        </section>
+      </aside>
+    </div>
+
+    <section class="section">
+      <div class="section-head">
+        <h2><Icon name="cpu" size={20} />Tech stack &amp; tools</h2>
+        <p class="mono muted">v2026.stack</p>
+      </div>
+      <div class="grid grid-3">
+        {
+          STACK.map((group) => (
+            <div class="card stack-card">
+              <p class="stack-head">
+                <span class="dot" />
+                {group.title}
+                <span class="idx">{group.index}</span>
+              </p>
+              <p class="muted stack-summary">{group.summary}</p>
+              <p class="chips">
+                {group.items.map((item) => (
+                  <span class="chip">{item}</span>
+                ))}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="panel cta">
+      <div>
+        <p class="rail-title">Knowledge vault</p>
+        <h2>Read the latest technical notes and post-mortems</h2>
+        <p class="muted">
+          Database isolation bugs, concurrency triage, and lightweight deployments.
+        </p>
+      </div>
+      <a class="btn btn-primary" href="/learnings">
+        Browse learnings
+        <Icon name="arrow-right" size={14} />
+      </a>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    padding-block: var(--space-xl);
+  }
+
+  .columns {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    align-items: start;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    min-width: 0;
+  }
+
+  .main .panel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  /* Only icon-led headings become flex rows; a plain heading keeps normal
+     inline flow so trailing punctuation is not pushed away from the text. */
+  .main h2 {
+    font-size: 1.125rem;
+  }
+
+  .main h2:has(svg) {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .main h2 svg {
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .intro {
+    border-left: 3px solid var(--accent-bright);
+  }
+
+  .accent {
+    color: var(--accent);
+  }
+
+  .principle {
+    gap: var(--space-xs);
+    padding: var(--space-md);
+  }
+
+  .principle-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 0.9375rem;
+    font-weight: 600;
+  }
+
+  .principle-title svg {
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .principle p,
+  .side p {
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  .side {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    min-width: 0;
+  }
+
+  .side-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+  }
+
+  .rail-title {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+
+  .facts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0;
+  }
+
+  .facts div {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .facts div:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .facts dt {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+
+  .facts dd {
+    margin: 0;
+    font-size: 0.8125rem;
+    text-align: right;
+  }
+
+  .facts dd.accent {
+    color: var(--accent);
+  }
+
+  blockquote {
+    margin: 0;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--surface-subtle);
+    border-radius: var(--radius);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+
+  blockquote cite {
+    display: block;
+    margin-top: 0.375rem;
+    text-align: right;
+    font-style: normal;
+    color: var(--text-faint);
+  }
+
+  .contact {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 0.5rem 0.75rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: border-color 150ms ease;
+  }
+
+  .contact:hover {
+    border-color: var(--accent-bright);
+  }
+
+  .contact > span {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    flex: 1;
+  }
+
+  .contact strong {
+    font-size: 0.8125rem;
+    font-weight: 600;
+  }
+
+  .contact svg {
+    color: var(--text-faint);
+    flex-shrink: 0;
+  }
+
+  .mono {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--text-faint);
+  }
+
+  .stack-card {
+    gap: var(--space-sm);
+    padding: var(--space-md);
+  }
+
+  .stack-head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 0.9375rem;
+    font-weight: 600;
+  }
+
+  .idx {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--text-faint);
+  }
+
+  .stack-summary {
+    font-size: 0.8125rem;
+    line-height: 1.55;
+  }
+
+  .cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+  }
+
+  .cta h2 {
+    margin-top: 0.25rem;
+    font-size: 1.25rem;
+    max-width: 28rem;
+  }
+
+  .cta p {
+    font-size: 0.9375rem;
+  }
+
+  @media (min-width: 1024px) {
+    .columns {
+      grid-template-columns: minmax(0, 1fr) 18rem;
+    }
+  }
+</style>
