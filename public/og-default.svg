@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#fbf8fc"/>
+  <rect x="0" y="0" width="1200" height="8" fill="#630ed4"/>
+  <rect x="72" y="232" width="64" height="64" rx="14" fill="#ede0ff"/>
+  <path d="M92 252l14 14-14 14" stroke="#7c3aed" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M110 280h16" stroke="#7c3aed" stroke-width="6" stroke-linecap="round" fill="none"/>
+  <text x="160" y="288" font-family="system-ui, sans-serif" font-size="52" font-weight="700" fill="#1b1b1e" letter-spacing="-2">Dev<tspan fill="#630ed4">633</tspan></text>
+  <text x="72" y="368" font-family="system-ui, sans-serif" font-size="30" fill="#4a4455">Building software. Learning continuously. Sharing what works.</text>
+  <text x="72" y="546" font-family="ui-monospace, monospace" font-size="21" fill="#6c6577">learnings // projects // engineering notes</text>
+</svg>

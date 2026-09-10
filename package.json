@@ -1,0 +1,28 @@
+{
+  "name": "dev633",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Dev633 - personal developer site and engineering knowledge hub.",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^8.0.1",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.3.2",
+    "zod": "^4.6.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@fontsource-variable/jetbrains-mono": "^5.2.6",
+    "@fontsource/geist-sans": "^5.2.6",
+    "typescript": "^5.9.2"
+  }
+}
