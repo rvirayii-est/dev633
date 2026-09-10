@@ -1,0 +1,27 @@
+---
+import LearningArchive from '../../components/LearningArchive.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLearnings } from '../../utils/content';
+
+const entries = await getLearnings();
+const topics = new Set(entries.map((entry) => entry.data.category));
+---
+
+<BaseLayout
+  title="Learnings"
+  description="Notes, lessons, experiments, and architectural insights worth keeping intact."
+>
+  <PageHeader
+    tinted
+    eyebrow="dev633.log"
+    title="Learnings"
+    description="Notes, lessons, experiments, and architectural insights worth keeping intact."
+    stats={[
+      { label: 'Entries', value: String(entries.length) },
+      { label: 'Topics', value: String(topics.size) },
+      { label: 'Format', value: 'Markdown', accent: true },
+    ]}
+  />
+  <LearningArchive entries={entries} all={entries} />
+</BaseLayout>

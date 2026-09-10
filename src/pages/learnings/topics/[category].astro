@@ -1,0 +1,41 @@
+---
+import type { InferGetStaticPropsType } from 'astro';
+
+import LearningArchive from '../../../components/LearningArchive.astro';
+import PageHeader from '../../../components/PageHeader.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getLearnings, slugify } from '../../../utils/content';
+
+export const getStaticPaths = async () => {
+  const entries = await getLearnings();
+  const categories = [...new Set(entries.map((entry) => entry.data.category))];
+
+  return categories.map((category) => ({
+    params: { category: slugify(category) },
+    props: {
+      category,
+      entries: entries.filter((entry) => entry.data.category === category),
+      all: entries,
+    },
+  }));
+};
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { category, entries, all } = Astro.props;
+const description = `Dev633 learnings filed under ${category}.`;
+---
+
+<BaseLayout title={`${category} learnings`} description={description}>
+  <PageHeader
+    tinted
+    eyebrow={`dev633.log :: ${category.toLowerCase()}`}
+    title={category}
+    description={description}
+    stats={[
+      { label: 'Entries', value: String(entries.length) },
+      { label: 'Of total', value: String(all.length) },
+    ]}
+  />
+  <LearningArchive entries={entries} all={all} activeCategory={category} />
+</BaseLayout>
