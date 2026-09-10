@@ -1,0 +1,81 @@
+---
+import '@fontsource/geist-sans/400.css';
+import '@fontsource/geist-sans/500.css';
+import '@fontsource/geist-sans/600.css';
+import '@fontsource/geist-sans/700.css';
+import '@fontsource-variable/jetbrains-mono';
+import '../styles/global.css';
+
+import { SITE } from '../data/site';
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Absolute or root-relative image used for Open Graph / Twitter cards. */
+  image?: string;
+  type?: 'website' | 'article';
+  publishedAt?: Date;
+  updatedAt?: Date;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description = SITE.description,
+  image = '/og-default.svg',
+  type = 'website',
+  publishedAt,
+  updatedAt,
+  noindex = false,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro.site);
+const ogImage = new URL(image, Astro.site);
+const fullTitle = title === SITE.name ? title : `${title} · ${SITE.name}`;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title={`${SITE.name} — Learnings`}
+  href={new URL('rss.xml', Astro.site)}
+/>
+
+<meta property="og:type" content={type} />
+<meta property="og:site_name" content={SITE.name} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImage} />
+{publishedAt && <meta property="article:published_time" content={publishedAt.toISOString()} />}
+{updatedAt && <meta property="article:modified_time" content={updatedAt.toISOString()} />}
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+<meta name="theme-color" content="#fbf8fc" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#121215" media="(prefers-color-scheme: dark)" />
+
+{/* Applies the stored theme before first paint so the page never flashes. */}
+<script is:inline>
+  (() => {
+    const choice = localStorage.getItem('dev633-theme') || 'system';
+    const dark =
+      choice === 'dark' ||
+      (choice === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+  })();
+</script>

@@ -1,0 +1,198 @@
+---
+import Icon from './Icon.astro';
+import ThemeToggle from './ThemeToggle.astro';
+import Wordmark from './Wordmark.astro';
+import { NAV, SITE } from '../data/site';
+
+const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+---
+
+<header class="site-header">
+  <div class="container bar">
+    <Wordmark />
+
+    <nav class="primary-nav" aria-label="Primary">
+      {
+        NAV.map((item) => (
+          <a
+            href={item.href}
+            class:list={['nav-link', { current: isCurrent(item.href) }]}
+            aria-current={isCurrent(item.href) ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="actions">
+      <a
+        class="icon-btn"
+        href={SITE.github}
+        rel="noreferrer noopener"
+        target="_blank"
+        aria-label="GitHub profile"
+        title="GitHub profile"
+      >
+        <Icon name="github" size={18} />
+      </a>
+      <ThemeToggle />
+
+      <details class="menu" data-mobile-menu>
+        <summary class="icon-btn" aria-label="Open menu" title="Menu">
+          <Icon name="menu" size={18} />
+        </summary>
+        <nav class="menu-panel" aria-label="Mobile">
+          {
+            NAV.map((item) => (
+              <a
+                href={item.href}
+                class:list={['menu-link', { current: isCurrent(item.href) }]}
+                aria-current={isCurrent(item.href) ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            ))
+          }
+          <a href={SITE.github} rel="noreferrer noopener" target="_blank" class="menu-link">
+            GitHub
+          </a>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--surface) 82%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    height: var(--header-height);
+  }
+
+  .primary-nav {
+    display: none;
+    align-items: center;
+    gap: var(--space-lg);
+  }
+
+  .nav-link {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    transition: color 150ms ease;
+  }
+
+  .nav-link:hover {
+    color: var(--text);
+  }
+
+  .nav-link.current {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .menu {
+    position: relative;
+  }
+
+  .menu summary {
+    list-style: none;
+  }
+
+  .menu summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .menu-panel {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    min-width: 11rem;
+    padding: 0.375rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .menu-link {
+    padding: 0.5rem 0.625rem;
+    border-radius: var(--radius);
+    font-size: 0.9375rem;
+    color: var(--text-muted);
+  }
+
+  .menu-link:hover {
+    background: var(--surface-subtle);
+    color: var(--text);
+  }
+
+  .menu-link.current {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  @media (min-width: 900px) {
+    .primary-nav {
+      display: flex;
+    }
+    .menu {
+      display: none;
+    }
+  }
+</style>
+
+<style is:global>
+  .icon-btn {
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition:
+      background-color 150ms ease,
+      color 150ms ease;
+  }
+
+  .icon-btn:hover {
+    background: var(--surface-high);
+    color: var(--text);
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    const menu = document.querySelector('[data-mobile-menu]');
+    if (!menu) return;
+    document.addEventListener('click', (e) => {
+      if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') menu.open = false;
+    });
+  })();
+</script>

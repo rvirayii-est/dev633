@@ -1,0 +1,139 @@
+---
+import Icon from './Icon.astro';
+import type { Project } from '../utils/content';
+
+interface Props {
+  entry: Project;
+  index?: number;
+}
+
+const { entry, index } = Astro.props;
+const { name, description, status, technologies, github, website } = entry.data;
+const href = `/projects/${entry.id}`;
+---
+
+<article class="card project card-interactive">
+  <div class="head">
+    <p class="badges">
+      <span class="eyebrow"><span class="dot"></span>{status}</span>
+      {index !== undefined && <span class="index">#{String(index).padStart(3, '0')}</span>}
+    </p>
+    {
+      github && (
+        <a
+          class="icon-btn"
+          href={github}
+          target="_blank"
+          rel="noreferrer noopener"
+          aria-label={`${name} source on GitHub`}
+          title="View source on GitHub"
+        >
+          <Icon name="terminal" size={16} />
+        </a>
+      )
+    }
+  </div>
+
+  <h3><a href={href}>{name}</a></h3>
+  <p class="summary">{description}</p>
+
+  <p class="chips tech">
+    {technologies.slice(0, 5).map((tech) => <span class="chip">{tech}</span>)}
+  </p>
+
+  <div class="foot">
+    <a class="link-accent" href={href} tabindex="-1">
+      Read case study
+      <Icon name="arrow-right" size={14} />
+    </a>
+    {
+      website && (
+        <a class="live" href={website} target="_blank" rel="noreferrer noopener">
+          Live
+          <Icon name="arrow-up-right" size={13} />
+        </a>
+      )
+    }
+  </div>
+</article>
+
+<style>
+  .project {
+    position: relative;
+    gap: var(--space-sm);
+  }
+
+  .head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+  }
+
+  .badges {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+  }
+
+  .index {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--text-faint);
+  }
+
+  h3 {
+    font-size: 1.1875rem;
+    letter-spacing: -0.02em;
+  }
+
+  h3 a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  h3 a:hover {
+    color: var(--accent);
+  }
+
+  .summary {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+
+  .tech {
+    margin-top: var(--space-xs);
+  }
+
+  .foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    margin-top: auto;
+    padding-top: var(--space-md);
+  }
+
+  /* Sits above the card-wide link overlay so it stays clickable. */
+  .head .icon-btn,
+  .live {
+    position: relative;
+    z-index: 1;
+  }
+
+  .live {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-faint);
+  }
+
+  .live:hover {
+    color: var(--accent);
+  }
+</style>

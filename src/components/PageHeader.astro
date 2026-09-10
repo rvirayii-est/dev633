@@ -1,0 +1,122 @@
+---
+/**
+ * Section banner used by /learnings, /projects and /about.
+ * `stats` renders the small monospaced metric block seen in the sample views.
+ */
+interface Props {
+  eyebrow: string;
+  title: string;
+  description: string;
+  stats?: { label: string; value: string; accent?: boolean }[];
+  tinted?: boolean;
+}
+
+const { eyebrow, title, description, stats = [], tinted = false } = Astro.props;
+---
+
+<section class:list={['page-header', { tinted }]}>
+  <div class="container inner">
+    <div class="copy">
+      <p class="eyebrow"><span class="dot"></span>{eyebrow}</p>
+      <h1>{title}</h1>
+      <p class="lede">{description}</p>
+    </div>
+    {
+      stats.length > 0 && (
+        <dl class="stats">
+          {stats.map((stat) => (
+            <div class="stat">
+              <dt>{stat.label}</dt>
+              <dd class:list={{ accent: stat.accent }}>{stat.value}</dd>
+            </div>
+          ))}
+        </dl>
+      )
+    }
+  </div>
+</section>
+
+<style>
+  .page-header {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .page-header.tinted {
+    background: linear-gradient(180deg, var(--accent-soft) 0%, var(--background) 100%);
+  }
+
+  .inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-lg);
+    padding-block: var(--space-xl);
+  }
+
+  .copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    max-width: 42rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  .stats {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .stat {
+    flex: 1 1 auto;
+    min-width: 7rem;
+    padding: 0.625rem 1rem;
+    border-left: 1px solid var(--border);
+  }
+
+  .stat:first-child {
+    border-left: 0;
+  }
+
+  .stat dt {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+
+  .stat dd {
+    margin: 0.125rem 0 0;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .stat dd.accent {
+    color: var(--accent);
+  }
+
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 2.75rem;
+      line-height: 1.1;
+    }
+    .inner {
+      flex-direction: row;
+      align-items: flex-end;
+      padding-block: var(--space-2xl) var(--space-xl);
+    }
+  }
+</style>

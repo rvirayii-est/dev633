@@ -1,0 +1,125 @@
+---
+import Icon from './Icon.astro';
+import type { Learning } from '../utils/content';
+import { formatDate, isoDate, readingTime } from '../utils/content';
+
+interface Props {
+  entry: Learning;
+  /** "card" is the home-page grid tile, "row" is the /learnings archive row. */
+  variant?: 'card' | 'row';
+}
+
+const { entry, variant = 'card' } = Astro.props;
+const { title, description, published, category, tags } = entry.data;
+const href = `/learnings/${entry.id}`;
+// The category already has its own chip on archive rows; avoid printing it twice.
+const secondaryTags = tags.filter((tag) => tag.toLowerCase() !== category.toLowerCase());
+---
+
+{
+  variant === 'card' ? (
+    <a class="card tile" href={href}>
+      <p class="meta">
+        <time datetime={isoDate(published)}>{formatDate(published)}</time>
+        <span class="sep">•</span>
+        <span>{readingTime(entry.body)}</span>
+      </p>
+      <h3>{title}</h3>
+      <p class="summary">{description}</p>
+      <p class="chips">
+        {tags.slice(0, 3).map((tag) => (
+          <span class="chip">{tag}</span>
+        ))}
+      </p>
+    </a>
+  ) : (
+    <article class="card row card-interactive">
+      <div class="row-head">
+        <p class="chips">
+          <span class="chip">{category}</span>
+          {secondaryTags.slice(0, 2).map((tag) => (
+            <span class="chip chip-neutral">{tag}</span>
+          ))}
+        </p>
+        <p class="meta">
+          <time datetime={isoDate(published)}>{formatDate(published)}</time>
+          <span class="sep">•</span>
+          <span>{readingTime(entry.body)}</span>
+        </p>
+      </div>
+      <h3>
+        <a href={href}>{title}</a>
+      </h3>
+      <p class="summary">{description}</p>
+      <p class="row-foot">
+        <a class="link-accent" href={href} tabindex="-1">
+          Read entry
+          <Icon name="arrow-right" size={14} />
+        </a>
+      </p>
+    </article>
+  )
+}
+
+<style>
+  .tile {
+    gap: var(--space-sm);
+    justify-content: space-between;
+  }
+
+  h3 {
+    font-size: 1.0625rem;
+    letter-spacing: -0.015em;
+    color: var(--text);
+  }
+
+  .summary {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+
+  .tile .chips {
+    margin-top: auto;
+    padding-top: var(--space-md);
+  }
+
+  .row {
+    gap: var(--space-sm);
+  }
+
+  .row-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+  }
+
+  /* Whole-row click target without nesting interactive elements. */
+  .row h3 a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  .row {
+    position: relative;
+  }
+
+  .row h3 a:hover {
+    color: var(--accent);
+  }
+
+  .row-foot {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: var(--space-xs);
+  }
+
+  @media (min-width: 768px) {
+    .row h3 {
+      font-size: 1.1875rem;
+    }
+  }
+</style>

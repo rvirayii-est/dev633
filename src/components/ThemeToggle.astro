@@ -1,0 +1,61 @@
+---
+import Icon from './Icon.astro';
+---
+
+<button
+  type="button"
+  class="icon-btn theme-toggle"
+  data-theme-toggle
+  aria-label="Change color theme"
+  title="Change color theme"
+>
+  <span data-theme-icon="system"><Icon name="monitor" size={18} /></span>
+  <span data-theme-icon="light" hidden><Icon name="sun" size={18} /></span>
+  <span data-theme-icon="dark" hidden><Icon name="moon" size={18} /></span>
+</button>
+
+<style>
+  .theme-toggle span {
+    display: grid;
+    place-items: center;
+  }
+  .theme-toggle span[hidden] {
+    display: none;
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    const order = ['system', 'light', 'dark'];
+
+    const paint = (choice) => {
+      const dark =
+        choice === 'dark' ||
+        (choice === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      document.querySelectorAll('[data-theme-toggle]').forEach((btn) => {
+        btn.querySelectorAll('[data-theme-icon]').forEach((icon) => {
+          icon.hidden = icon.dataset.themeIcon !== choice;
+        });
+        btn.setAttribute('aria-label', `Color theme: ${choice}. Click to change.`);
+        btn.setAttribute('title', `Color theme: ${choice}`);
+      });
+    };
+
+    const read = () => localStorage.getItem('dev633-theme') || 'system';
+
+    document.querySelectorAll('[data-theme-toggle]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const next = order[(order.indexOf(read()) + 1) % order.length];
+        localStorage.setItem('dev633-theme', next);
+        paint(next);
+      });
+    });
+
+    window
+      .matchMedia('(prefers-color-scheme: dark)')
+      .addEventListener('change', () => read() === 'system' && paint('system'));
+
+    paint(read());
+  })();
+</script>
