@@ -9,6 +9,11 @@ import { SITE } from './src/data/site';
 export default defineConfig({
   site: SITE.url,
   trailingSlash: 'ignore',
+  // The section was renamed from "Projects" to "R&D"; keep the old paths alive.
+  redirects: {
+    '/projects': '/rnd',
+    '/projects/[slug]': '/rnd/[slug]',
+  },
   integrations: [mdx(), sitemap()],
   markdown: {
     shikiConfig: {

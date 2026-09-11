@@ -92,7 +92,7 @@ fails the build rather than rendering a broken page.
 
 ## Adding a project
 
-Create a Markdown file in `src/content/projects/`. The body is the case study.
+Create a Markdown file in `src/content/rnd/`. The body is the case study.
 
 ```markdown
 ---
@@ -103,7 +103,7 @@ technologies: ['Spring Boot', 'PostgreSQL', 'Docker']
 github: 'https://github.com/you/repo'      # optional
 website: 'https://example.com'             # optional
 featured: true           # featured projects appear on the home page
-order: 2                 # lower numbers sort first on /projects
+order: 2                 # lower numbers sort first on /rnd
 draft: false
 ---
 

@@ -1,7 +1,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 export type Learning = CollectionEntry<'learnings'>;
-export type Project = CollectionEntry<'projects'>;
+export type RndEntry = CollectionEntry<'rnd'>;
 
 /** Drafts are visible while developing and dropped from production builds. */
 const isVisible = (entry: { data: { draft: boolean } }) =>
@@ -12,8 +12,8 @@ export async function getLearnings(): Promise<Learning[]> {
   return entries.sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf());
 }
 
-export async function getProjects(): Promise<Project[]> {
-  const entries = await getCollection('projects', isVisible);
+export async function getRnd(): Promise<RndEntry[]> {
+  const entries = await getCollection('rnd', isVisible);
   return entries.sort(
     (a, b) => a.data.order - b.data.order || a.data.name.localeCompare(b.data.name),
   );

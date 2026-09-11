@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+
+import portrait from '../assets/roberto-viray.png';
 import Icon from '../components/Icon.astro';
 import PageHeader from '../components/PageHeader.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -132,6 +135,14 @@ const principles = [
 
       <aside class="side">
         <section class="panel side-card">
+          <Image
+            class="portrait"
+            src={portrait}
+            alt="Illustrated portrait of Roberto Viray II"
+            width={560}
+            densities={[1, 2]}
+            loading="eager"
+          />
           <p class="rail-title">Profile</p>
           <dl class="facts">
             <div><dt>Name</dt><dd>{RESUME.name}</dd></div>
@@ -357,6 +368,16 @@ const principles = [
     flex-direction: column;
     gap: var(--space-sm);
     padding: var(--space-md);
+  }
+
+  .portrait {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
   }
 
   .rail-title {

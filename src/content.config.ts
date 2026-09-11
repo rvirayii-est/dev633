@@ -22,11 +22,11 @@ const learnings = defineCollection({
 });
 
 /**
- * Engineering write-ups for things I have built.
- * The Markdown body is the case study.
+ * Research & development write-ups: things I have built, taken apart, or
+ * prototyped. The Markdown body is the case study.
  */
-const projects = defineCollection({
-  loader: glob({ base: './src/content/projects', pattern: '**/*.{md,mdx}' }),
+const rnd = defineCollection({
+  loader: glob({ base: './src/content/rnd', pattern: '**/*.{md,mdx}' }),
   schema: z.object({
     name: z.string(),
     description: z.string(),
@@ -35,10 +35,10 @@ const projects = defineCollection({
     github: z.url().optional(),
     website: z.url().optional(),
     featured: z.boolean().default(false),
-    /** Controls ordering on /projects; lower numbers first. */
+    /** Controls ordering on /rnd; lower numbers first. */
     order: z.number().default(100),
     draft: z.boolean().default(false),
   }),
 });
 
-export const collections = { learnings, projects };
+export const collections = { learnings, rnd };

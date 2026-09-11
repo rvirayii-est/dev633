@@ -24,14 +24,14 @@ export type NavItem = { label: string; href: string };
 export const NAV: NavItem[] = [
   { label: 'Home', href: '/' },
   { label: 'Learnings', href: '/learnings' },
-  { label: 'Projects', href: '/projects' },
+  { label: 'R&D', href: '/rnd' },
   { label: 'Resume', href: '/resume' },
   { label: 'About', href: '/about' },
 ];
 
 export const FOOTER_LINKS: NavItem[] = [
   { label: 'Learnings', href: '/learnings' },
-  { label: 'Projects', href: '/projects' },
+  { label: 'R&D', href: '/rnd' },
   { label: 'Resume', href: '/resume' },
   { label: 'About', href: '/about' },
   { label: 'GitHub', href: SITE.github },

@@ -2,16 +2,16 @@
 import HeroTerminal from '../components/HeroTerminal.astro';
 import Icon from '../components/Icon.astro';
 import LearningCard from '../components/LearningCard.astro';
-import ProjectCard from '../components/ProjectCard.astro';
+import RndCard from '../components/RndCard.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { RESUME, RESUME_DOMAINS } from '../data/resume';
 import { CURRENTLY_EXPLORING, SITE, STACK } from '../data/site';
-import { getLearnings, getProjects } from '../utils/content';
+import { getLearnings, getRnd } from '../utils/content';
 
 const learnings = (await getLearnings()).slice(0, 3);
-const allProjects = await getProjects();
-const featured = allProjects.filter((p) => p.data.featured).slice(0, 3);
-const projects = featured.length > 0 ? featured : allProjects.slice(0, 3);
+const allRnd = await getRnd();
+const featuredRnd = allRnd.filter((e) => e.data.featured).slice(0, 3);
+const rndEntries = featuredRnd.length > 0 ? featuredRnd : allRnd.slice(0, 3);
 ---
 
 <BaseLayout title={SITE.name} description={SITE.description}>
@@ -74,14 +74,14 @@ const projects = featured.length > 0 ? featured : allProjects.slice(0, 3);
 
     <section class="section">
       <div class="section-head">
-        <h2><Icon name="layers" size={20} />Things I've Built</h2>
-        <a class="link-accent" href="/projects">
-          Explore all projects
+        <h2><Icon name="layers" size={20} />R&amp;D</h2>
+        <a class="link-accent" href="/rnd">
+          Explore all R&amp;D
           <Icon name="arrow-right" size={14} />
         </a>
       </div>
       <div class="grid grid-3">
-        {projects.map((entry, i) => <ProjectCard entry={entry} index={i + 1} />)}
+        {rndEntries.map((entry, i) => <RndCard entry={entry} index={i + 1} />)}
       </div>
     </section>
 

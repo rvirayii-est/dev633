@@ -1,38 +1,38 @@
 ---
 import Icon from '../../components/Icon.astro';
 import PageHeader from '../../components/PageHeader.astro';
-import ProjectCard from '../../components/ProjectCard.astro';
+import RndCard from '../../components/RndCard.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE } from '../../data/site';
-import { getProjects } from '../../utils/content';
+import { getRnd } from '../../utils/content';
 
-const projects = await getProjects();
-const statuses = new Set(projects.map((p) => p.data.status));
+const entries = await getRnd();
+const statuses = new Set(entries.map((e) => e.data.status));
 ---
 
 <BaseLayout
-  title="Projects"
-  description="Software I've built, experiments I've tried, and systems I've learned from."
+  title="R&D"
+  description="Research and development: software I've built, experiments I've run, and systems I've taken apart to learn from."
 >
   <PageHeader
-    eyebrow="archive // system index"
-    title="Projects"
-    description="Software I've built, experiments I've tried, and systems I've learned from."
+    eyebrow="archive // research &amp; development"
+    title="R&amp;D"
+    description="Software I've built, experiments I've run, and systems I've taken apart to learn from."
     stats={[
-      { label: 'Case studies', value: String(projects.length) },
+      { label: 'Case studies', value: String(entries.length) },
       { label: 'Statuses', value: String(statuses.size), accent: true },
     ]}
   />
 
   <div class="container page">
     <div class="grid grid-2">
-      {projects.map((entry, i) => <ProjectCard entry={entry} index={i + 1} />)}
+      {entries.map((entry, i) => <RndCard entry={entry} index={i + 1} />)}
     </div>
 
     <section class="cta panel">
       <span class="cta-icon" aria-hidden="true"><Icon name="compass" size={18} /></span>
       <div class="cta-copy">
-        <h2>Looking for smaller code experiments?</h2>
+        <h2>Looking for smaller experiments?</h2>
         <p class="muted">
           Prototypes and throwaway spikes that never became case studies live in the repositories.
         </p>

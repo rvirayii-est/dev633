@@ -1,15 +1,15 @@
 ---
 import Icon from './Icon.astro';
-import type { Project } from '../utils/content';
+import type { RndEntry } from '../utils/content';
 
 interface Props {
-  entry: Project;
+  entry: RndEntry;
   index?: number;
 }
 
 const { entry, index } = Astro.props;
 const { name, description, status, technologies, github, website } = entry.data;
-const href = `/projects/${entry.id}`;
+const href = `/rnd/${entry.id}`;
 ---
 
 <article class="card project card-interactive">

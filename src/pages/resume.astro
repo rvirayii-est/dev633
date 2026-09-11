@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+
+import portrait from '../assets/roberto-viray.png';
 import Icon from '../components/Icon.astro';
 import PageHeader from '../components/PageHeader.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -30,6 +33,14 @@ import {
 
   <div class="container page">
     <section class="panel download">
+      <Image
+        class="avatar"
+        src={portrait}
+        alt="Illustrated portrait of Roberto Viray II"
+        width={128}
+        densities={[1, 2]}
+        loading="eager"
+      />
       <div class="download-copy">
         <p class="rail-title">Downloadable copy</p>
         <h2>{RESUME.name}</h2>
@@ -210,6 +221,20 @@ import {
 
   .download {
     border-left: 3px solid var(--accent-bright);
+  }
+
+  .avatar {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+
+  .download-copy {
+    flex: 1;
+    min-width: 14rem;
   }
 
   .download-copy h2,
