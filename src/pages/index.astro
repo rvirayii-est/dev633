@@ -4,6 +4,7 @@ import Icon from '../components/Icon.astro';
 import LearningCard from '../components/LearningCard.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { RESUME, RESUME_DOMAINS } from '../data/resume';
 import { CURRENTLY_EXPLORING, SITE, STACK } from '../data/site';
 import { getLearnings, getProjects } from '../utils/content';
 
@@ -18,19 +19,26 @@ const projects = featured.length > 0 ? featured : allProjects.slice(0, 3);
     <section class="hero">
       <div class="hero-copy">
         <p class="eyebrow">
-          <span class="dot"></span>Roberto Viray II • Software Developer
+          <span class="dot"></span>Roberto Viray II • Senior Java Developer
         </p>
-        <h1>I build software and document what I learn.</h1>
-        <p class="lede">{SITE.description}</p>
-        <p class="hero-note">
-          A decade of coding and learning, kept in the open rather than in my head.
+        <h1>I build enterprise backends and document what I learn.</h1>
+        <p class="lede">
+          {RESUME.yearsExperience} years of Java and Spring Boot, delivering REST APIs,
+          microservices and the web and mobile interfaces on top of them. This site is where
+          the lessons get written down instead of forgotten.
+        </p>
+        <p class="chips hero-domains">
+          {RESUME_DOMAINS.map((domain) => <span class="chip chip-neutral">{domain}</span>)}
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="/learnings">
             Read my learnings
             <Icon name="arrow-right" size={16} />
           </a>
-          <a class="btn btn-secondary" href="/projects">View projects</a>
+          <a class="btn btn-secondary" href="/resume">
+            <Icon name="file-text" size={15} />
+            View resume
+          </a>
         </div>
       </div>
       <div class="hero-visual"><HeroTerminal /></div>
@@ -101,6 +109,21 @@ const projects = featured.length > 0 ? featured : allProjects.slice(0, 3);
       </div>
     </section>
 
+    <section class="cta panel resume-cta">
+      <span class="cta-icon" aria-hidden="true"><Icon name="briefcase" size={18} /></span>
+      <div class="cta-copy">
+        <h2>{RESUME.yearsExperience} years of shipping enterprise software.</h2>
+        <p class="muted">
+          Lead full-stack roles across banking, healthcare, logistics and IoT. The full
+          history is on the resume page, with a PDF you can download.
+        </p>
+      </div>
+      <a class="btn btn-primary cta-link" href="/resume">
+        View resume
+        <Icon name="arrow-right" size={14} />
+      </a>
+    </section>
+
     <section class="cta panel">
       <span class="cta-icon" aria-hidden="true"><Icon name="code" size={18} /></span>
       <div class="cta-copy">
@@ -116,6 +139,10 @@ const projects = featured.length > 0 ? featured : allProjects.slice(0, 3);
 </BaseLayout>
 
 <style>
+  .hero-domains {
+    margin-top: 0.25rem;
+  }
+
   .page {
     display: flex;
     flex-direction: column;
@@ -142,13 +169,6 @@ const projects = featured.length > 0 ? featured : allProjects.slice(0, 3);
     line-height: 1.15;
     font-weight: 700;
     letter-spacing: -0.03em;
-  }
-
-  .hero-note {
-    font-size: 0.9375rem;
-    color: var(--text-faint);
-    border-left: 2px solid var(--accent-bright);
-    padding-left: var(--space-md);
   }
 
   .hero-actions {

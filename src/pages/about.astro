@@ -2,6 +2,7 @@
 import Icon from '../components/Icon.astro';
 import PageHeader from '../components/PageHeader.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { RESUME, RESUME_DOMAINS, RESUME_EXPERIENCE } from '../data/resume';
 import { SITE, STACK } from '../data/site';
 
 const principles = [
@@ -44,11 +45,17 @@ const principles = [
         <section class="panel intro">
           <h2>Hey there, I'm Roberto Viray II, the developer behind <span class="accent">deV633</span>.</h2>
           <p class="muted">
-            A decade of coding and learning, and still taking things apart to see how they
-            work. I build backend services and the interfaces that sit on top of them. Most
-            of that work is Java and Spring Boot on the server, a typed Vue or Astro
-            frontend, and PostgreSQL underneath, packaged with Docker and deployed behind a
-            reverse proxy.
+            {RESUME.yearsExperience} years of coding and learning, and still taking things
+            apart to see how they work. I am a senior Java engineer: Spring Boot services,
+            REST APIs and microservices on the server, an Angular, Vue or React frontend on
+            top, and PostgreSQL or SQL Server underneath, packaged with Docker and deployed
+            to AWS or behind a reverse proxy.
+          </p>
+          <p class="muted">
+            That work has run through banking, healthcare, logistics, IoT and a long tail of
+            internal business systems. More recently it has meant leading delivery: owning
+            technical design, reviewing code before it ships, and mentoring the engineers
+            doing the work alongside me.
           </p>
           <p class="muted">
             Ten years in, the lesson that stuck is that the interesting part is never the
@@ -56,9 +63,7 @@ const principles = [
             afterwards.
           </p>
           <p class="chips">
-            <span class="chip chip-neutral">10+ years building</span>
-            <span class="chip chip-neutral">backend-leaning full stack</span>
-            <span class="chip chip-neutral">self-hosting</span>
+            {RESUME_DOMAINS.map((domain) => <span class="chip chip-neutral">{domain}</span>)}
           </p>
         </section>
 
@@ -86,6 +91,27 @@ const principles = [
 
         <section class="section">
           <div class="section-head">
+            <h2><Icon name="briefcase" size={20} />Where I've worked</h2>
+            <a class="link-accent" href="/resume">
+              Full resume
+              <Icon name="arrow-right" size={14} />
+            </a>
+          </div>
+          <ol class="roles">
+            {
+              RESUME_EXPERIENCE.map((role) => (
+                <li class="card role">
+                  <p class="role-title">{role.title}</p>
+                  <p class="role-context">{role.context}</p>
+                  <p class="muted">{role.highlights[0]}</p>
+                </li>
+              ))
+            }
+          </ol>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
             <h2><Icon name="compass" size={20} />How I work</h2>
           </div>
           <div class="grid grid-2">
@@ -108,10 +134,13 @@ const principles = [
         <section class="panel side-card">
           <p class="rail-title">Profile</p>
           <dl class="facts">
-            <div><dt>Name</dt><dd>Roberto Viray II</dd></div>
-            <div><dt>Experience</dt><dd>A decade of coding</dd></div>
-            <div><dt>Focus</dt><dd>Backend &amp; cloud systems</dd></div>
-            <div><dt>Frontend</dt><dd>Vue 3, TypeScript, Astro</dd></div>
+            <div><dt>Name</dt><dd>{RESUME.name}</dd></div>
+            <div><dt>Experience</dt><dd>{RESUME.yearsExperience} years</dd></div>
+            <div><dt>Focus</dt><dd>Java, Spring Boot, REST APIs</dd></div>
+            <div><dt>Frontend</dt><dd>Angular, Vue 3, React</dd></div>
+            <div><dt>Data</dt><dd>PostgreSQL, SQL Server, Oracle</dd></div>
+            <div><dt>Based in</dt><dd>{RESUME.location}</dd></div>
+            <div><dt>Education</dt><dd>BS Computer Engineering</dd></div>
             <div><dt>Status</dt><dd class="accent">Building &amp; documenting</dd></div>
           </dl>
           <blockquote>
@@ -145,6 +174,14 @@ const principles = [
               </a>
             )
           }
+          <a class="contact" href="/resume">
+            <Icon name="file-text" size={15} />
+            <span>
+              <strong>Resume</strong>
+              <span class="mono">Read online or download</span>
+            </span>
+            <Icon name="arrow-right" size={13} />
+          </a>
           <a class="contact" href="/rss.xml">
             <Icon name="rss" size={15} />
             <span>
@@ -250,6 +287,38 @@ const principles = [
 
   .accent {
     color: var(--accent);
+  }
+
+  .roles {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .role {
+    gap: 0.25rem;
+    padding: var(--space-md);
+  }
+
+  .role-title {
+    font-size: 0.9375rem;
+    font-weight: 600;
+  }
+
+  .role-context {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.04em;
+    color: var(--text-faint);
+  }
+
+  .role p.muted {
+    margin-top: 0.25rem;
+    font-size: 0.8125rem;
+    line-height: 1.55;
   }
 
   .principle {

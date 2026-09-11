@@ -10,7 +10,7 @@ export const SITE = {
   url: 'https://dev633.pages.dev',
   tagline: 'Building software. Learning continuously. Sharing what works.',
   description:
-    'deV633 is where I share development learnings, experiments, projects, architecture decisions, and lessons from building real software.',
+    'deV633 is the engineering journal of a senior Java and Spring Boot developer with 10+ years building enterprise backends, APIs and the interfaces on top of them. Learnings, projects, architecture decisions and lessons from real systems.',
   author: 'Roberto Viray II',
   locale: 'en',
   github: 'https://github.com/rvirayii-est',
@@ -25,12 +25,14 @@ export const NAV: NavItem[] = [
   { label: 'Home', href: '/' },
   { label: 'Learnings', href: '/learnings' },
   { label: 'Projects', href: '/projects' },
+  { label: 'Resume', href: '/resume' },
   { label: 'About', href: '/about' },
 ];
 
 export const FOOTER_LINKS: NavItem[] = [
   { label: 'Learnings', href: '/learnings' },
   { label: 'Projects', href: '/projects' },
+  { label: 'Resume', href: '/resume' },
   { label: 'About', href: '/about' },
   { label: 'GitHub', href: SITE.github },
   { label: 'RSS', href: '/rss.xml' },
@@ -57,38 +59,45 @@ export type StackGroup = {
 export const STACK: StackGroup[] = [
   {
     index: '01',
-    title: 'Backend Systems',
+    title: 'Java & Backend',
     summary:
-      'Core runtime services, concurrency primitives, enterprise microservices, and asynchronous event streams.',
-    items: ['Java', 'Spring Boot', 'C#', '.NET Core', 'Kotlin'],
+      'Enterprise services, REST APIs, microservices, persistence mapping, and asynchronous event streams.',
+    items: ['Java', 'Spring Boot', 'Spring Security', 'Spring Data JPA', 'Hibernate', 'Kafka', 'J2EE'],
   },
   {
     index: '02',
     title: 'Frontend Engineering',
     summary:
-      'Modular reactivity, strict type definitions, utility-first design systems, and rapid asset bundling.',
-    items: ['Vue 3', 'TypeScript', 'Astro', 'Vite'],
+      'Component architecture across three major frameworks, strict typing, and accessible interface work.',
+    items: ['Angular', 'Vue 3', 'React', 'Next.js', 'TypeScript', 'Astro'],
   },
   {
     index: '03',
     title: 'Data Architecture',
     summary:
-      'Relational schemas, query optimization, in-memory caching tiers, and realtime relational synchronization.',
-    items: ['PostgreSQL', 'SQL Server', 'Supabase', 'Redis'],
+      'Relational schema design, query optimization, stored procedures, and production database support.',
+    items: ['PostgreSQL', 'SQL Server', 'Oracle', 'MySQL', 'MongoDB'],
   },
   {
     index: '04',
-    title: 'Mobile Platforms',
+    title: 'Mobile & Desktop',
     summary:
-      'Cross-platform ergonomics, native hardware bridges, and concise idiomatic mobile logic.',
-    items: ['Flutter', 'Dart', 'Tauri'],
+      'Cross-platform applications, native hardware bridges, and Windows desktop tooling for operations teams.',
+    items: ['Flutter', 'Dart', 'React Native', 'Android Native', 'C#'],
   },
   {
     index: '05',
     title: 'Infrastructure & DevOps',
     summary:
-      'Containerized orchestration, reverse proxy routing, edge security policies, and declarative pipelines.',
-    items: ['Docker', 'Keycloak', 'Nginx', 'Cloudflare', 'Linux', 'GitHub Actions'],
+      'Containerized builds, cloud deployment, reverse proxy routing, edge delivery, and declarative pipelines.',
+    items: ['Docker', 'AWS', 'Cloudflare', 'Nginx', 'Linux', 'Maven', 'Tomcat', 'CI/CD'],
+  },
+  {
+    index: '06',
+    title: 'Engineering Leadership',
+    summary:
+      'Technical design ownership, code review before deployment, mentoring, and agile delivery cadence.',
+    items: ['Architecture', 'Code Review', 'Mentoring', 'Agile', 'Scrum', 'Kanban'],
   },
 ];
 

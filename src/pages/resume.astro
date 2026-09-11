@@ -1,0 +1,349 @@
+---
+import Icon from '../components/Icon.astro';
+import PageHeader from '../components/PageHeader.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import {
+  RESUME,
+  RESUME_EARLY,
+  RESUME_EDUCATION,
+  RESUME_EXPERIENCE,
+  RESUME_DOMAINS,
+  RESUME_PROJECTS,
+  RESUME_SKILLS,
+} from '../data/resume';
+---
+
+<BaseLayout
+  title="Resume"
+  description={`${RESUME.name} — ${RESUME.headline}. Read the full resume or download the PDF.`}
+>
+  <PageHeader
+    eyebrow="profile // curriculum vitae"
+    title="Resume"
+    description={RESUME.headline}
+    stats={[
+      { label: 'Experience', value: `${RESUME.yearsExperience} years` },
+      { label: 'Roles listed', value: String(RESUME_EXPERIENCE.length + RESUME_EARLY.length) },
+      { label: 'Format', value: 'PDF', accent: true },
+    ]}
+  />
+
+  <div class="container page">
+    <section class="panel download">
+      <div class="download-copy">
+        <p class="rail-title">Downloadable copy</p>
+        <h2>{RESUME.name}</h2>
+        <p class="muted">
+          The page below describes the work itself. The PDF adds employers, locations and
+          dates for applications and referrals.
+        </p>
+      </div>
+      <div class="download-actions">
+        <a
+          class="btn btn-primary"
+          href={RESUME.pdfPath}
+          download={RESUME.pdfFilename}
+        >
+          <Icon name="download" size={15} />
+          Download PDF
+        </a>
+        <a
+          class="btn btn-secondary"
+          href={RESUME.pdfPath}
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          <Icon name="file-text" size={15} />
+          View in browser
+        </a>
+      </div>
+    </section>
+
+    <section class="panel summary">
+      <h2><Icon name="terminal" size={18} />Professional summary</h2>
+      <p class="muted">{RESUME.summary}</p>
+      <p class="chips">
+        <span class="chip chip-neutral">{RESUME.location}</span>
+        <a class="chip chip-neutral" href={`mailto:${RESUME.email}`}>{RESUME.email}</a>
+      </p>
+      <p class="rail-title domains-label">Domains shipped into</p>
+      <p class="chips">
+        {RESUME_DOMAINS.map((domain) => <span class="chip">{domain}</span>)}
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2><Icon name="cpu" size={20} />Core technical skills</h2>
+      </div>
+      <div class="grid grid-2">
+        {
+          RESUME_SKILLS.map((group) => (
+            <div class="card skill-card">
+              <p class="skill-title">{group.title}</p>
+              <p class="chips">
+                {group.items.map((item) => (
+                  <span class="chip">{item}</span>
+                ))}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2><Icon name="briefcase" size={20} />Experience</h2>
+      </div>
+      <ol class="timeline">
+        {
+          RESUME_EXPERIENCE.map((role) => (
+            <li class="panel role">
+              <div class="role-head">
+                <p class="role-title">{role.title}</p>
+                <p class="role-context mono">{role.context}</p>
+              </div>
+              <ul class="bullets">
+                {role.highlights.map((line) => (
+                  <li class="muted">{line}</li>
+                ))}
+              </ul>
+              <p class="chips">
+                {role.tech.map((item) => (
+                  <span class="chip">{item}</span>
+                ))}
+              </p>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <div class="columns">
+      <section class="section">
+        <div class="section-head">
+          <h2><Icon name="clock" size={20} />Foundational roles</h2>
+        </div>
+        <div class="stack-list">
+          {
+            RESUME_EARLY.map((role) => (
+              <div class="card early">
+                <p class="early-title">{role.title}</p>
+                <p class="muted">{role.detail}</p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2><Icon name="layers" size={20} />Consulting &amp; projects</h2>
+        </div>
+        <div class="stack-list">
+          {
+            RESUME_PROJECTS.map((project) => (
+              <div class="card early">
+                <p class="early-title">{project.title}</p>
+                <p class="muted">{project.detail}</p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+    </div>
+
+    <section class="panel education">
+      <h2><Icon name="graduation-cap" size={18} />Education &amp; recognition</h2>
+      <p class="degree">{RESUME_EDUCATION.degree}</p>
+      <p class="muted">{RESUME_EDUCATION.school}</p>
+      <ul class="bullets">
+        {RESUME_EDUCATION.honors.map((honor) => <li class="muted">{honor}</li>)}
+      </ul>
+    </section>
+
+    <section class="panel cta">
+      <div>
+        <p class="rail-title">Prefer a file?</p>
+        <h2>Grab the PDF and take it with you</h2>
+        <p class="muted">One click, no sign-up, no tracking.</p>
+      </div>
+      <a class="btn btn-primary" href={RESUME.pdfPath} download={RESUME.pdfFilename}>
+        <Icon name="download" size={14} />
+        Download resume
+      </a>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    padding-block: var(--space-xl);
+  }
+
+  .rail-title {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+
+  .mono {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--text-faint);
+  }
+
+  .download,
+  .cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+  }
+
+  .download {
+    border-left: 3px solid var(--accent-bright);
+  }
+
+  .download-copy h2,
+  .cta h2 {
+    margin-top: 0.25rem;
+    font-size: 1.25rem;
+  }
+
+  .download-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .summary {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .summary h2,
+  .education h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 1.125rem;
+  }
+
+  .summary h2 svg,
+  .education h2 svg {
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .skill-card {
+    gap: var(--space-sm);
+    padding: var(--space-md);
+  }
+
+  .skill-title {
+    font-size: 0.9375rem;
+    font-weight: 600;
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .role {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .role-head {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .role-title {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .role-context {
+    color: var(--text-faint);
+  }
+
+  .domains-label {
+    margin-top: 0.25rem;
+  }
+
+  .bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    margin: 0;
+    padding-left: 1.125rem;
+  }
+
+  .bullets li {
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  .columns {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  .stack-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .early {
+    gap: 0.25rem;
+    padding: var(--space-md);
+  }
+
+  .early-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .early p.muted {
+    font-size: 0.8125rem;
+    line-height: 1.55;
+  }
+
+  .education {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .degree {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  @media (min-width: 900px) {
+    .columns {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>
