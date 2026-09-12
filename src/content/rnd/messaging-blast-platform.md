@@ -4,7 +4,7 @@ description: 'A text-messaging blast tool for bulk communication and automation 
 status: 'Archived'
 technologies: ['Java', 'SMS Gateway', 'SQL']
 featured: false
-order: 5
+order: 7
 draft: false
 ---
 

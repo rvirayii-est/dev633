@@ -4,7 +4,7 @@ description: 'Maintaining and upgrading a long-lived Java and Vaadin 8 CRM for a
 status: 'Production'
 technologies: ['Java', 'Vaadin 8', 'SQL', 'Maven']
 featured: true
-order: 3
+order: 5
 draft: false
 ---
 

@@ -5,7 +5,7 @@ status: 'Active'
 technologies: ['Astro', 'TypeScript', 'Markdown', 'Cloudflare Pages']
 github: 'https://github.com/rvirayii-est/dev633'
 featured: true
-order: 1
+order: 3
 draft: false
 ---
 

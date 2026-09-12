@@ -4,7 +4,7 @@ description: 'A patient and records management platform built on Spring Boot and
 status: 'Production'
 technologies: ['Java', 'Spring Boot', 'Vaadin', 'Docker', 'AWS']
 featured: true
-order: 2
+order: 4
 draft: false
 ---
 
