@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+
+import avatar from '../assets/roberto-viray-cartoon.png';
 import HeroTerminal from '../components/HeroTerminal.astro';
 import Icon from '../components/Icon.astro';
 import LearningCard from '../components/LearningCard.astro';
@@ -18,14 +21,22 @@ const rndEntries = featuredRnd.length > 0 ? featuredRnd : allRnd.slice(0, 3);
   <div class="container page">
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">
-          <span class="dot"></span>Roberto Viray II • Senior Java Developer
+        <p class="eyebrow eyebrow-id">
+          <Image
+            class="avatar"
+            src={avatar}
+            alt="Cartoon portrait of Roberto Viray II"
+            width={96}
+            densities={[1, 2]}
+            loading="eager"
+          />
+          <span>Roberto Viray II • Software Engineer &amp; Builder</span>
         </p>
         <h1>I build enterprise backends and document what I learn.</h1>
         <p class="lede">
-          {RESUME.yearsExperience} years of Java and Spring Boot, delivering REST APIs,
-          microservices and the web and mobile interfaces on top of them. This site is where
-          the lessons get written down instead of forgotten.
+          {RESUME.yearsExperience} years across the stack, delivering REST APIs, microservices
+          and the web and mobile interfaces on top of them. This site is where the lessons
+          get written down instead of forgotten.
         </p>
         <p class="chips hero-domains">
           {RESUME_DOMAINS.map((domain) => <span class="chip chip-neutral">{domain}</span>)}
@@ -141,6 +152,22 @@ const rndEntries = featuredRnd.length > 0 ? featuredRnd : allRnd.slice(0, 3);
 <style>
   .hero-domains {
     margin-top: 0.25rem;
+  }
+
+  .eyebrow-id {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .avatar {
+    display: block;
+    width: 2.75rem;
+    height: 2.75rem;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid var(--border);
   }
 
   .page {

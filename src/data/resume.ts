@@ -14,13 +14,13 @@ export const RESUME = {
   /** Filename the browser saves as, via the `download` attribute. */
   pdfFilename: 'Roberto-Viray-II-Java-Developer-Resume.pdf',
   name: 'Roberto E. Viray II',
-  headline: 'Senior Java Developer · Spring Boot Engineer · Lead Full-stack Software Engineer',
+  headline: 'Software Engineer & Builder · Full-stack Delivery · Backend, Web and Mobile',
   location: 'Philippines',
   /** Shown on /resume only; the site-wide contact rows stay GitHub-first. */
   email: 'robertovirayii@gmail.com',
   yearsExperience: '10+',
   summary:
-    'Senior Java and full-stack software engineer with 10+ years of experience delivering enterprise applications across banking, healthcare, logistics, IoT, and internal business systems. Deep hands-on experience with Java, Spring Boot, REST APIs, microservices, Spring Data JPA, Hibernate, SQL databases, Kafka, and modern web and mobile stacks. Experienced leading engineering work, reviewing code, translating business requirements into technical solutions, mentoring developers, and supporting production-ready releases.',
+    'Full-stack software engineer with 10+ years of experience delivering enterprise applications across banking, healthcare, logistics, IoT, and internal business systems. Deep hands-on experience with Java, Spring Boot, REST APIs, microservices, Spring Data JPA, Hibernate, SQL databases, Kafka, and modern web and mobile stacks. Experienced leading engineering work, reviewing code, translating business requirements into technical solutions, mentoring developers, and supporting production-ready releases.',
 } as const;
 
 /** Industries shipped into, used as a chip strip on several pages. */

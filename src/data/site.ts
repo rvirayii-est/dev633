@@ -10,7 +10,7 @@ export const SITE = {
   url: 'https://dev633.pages.dev',
   tagline: 'Building software. Learning continuously. Sharing what works.',
   description:
-    'deV633 is the engineering journal of a senior Java and Spring Boot developer with 10+ years building enterprise backends, APIs and the interfaces on top of them. Learnings, projects, architecture decisions and lessons from real systems.',
+    'deV633 is the engineering journal of a software engineer with 10+ years building enterprise backends, APIs and the interfaces on top of them. Learnings, projects, architecture decisions and lessons from real systems.',
   author: 'Roberto Viray II',
   locale: 'en',
   github: 'https://github.com/rvirayii-est',
