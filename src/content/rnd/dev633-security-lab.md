@@ -25,7 +25,7 @@ The half that matters to me is the other one: why the code allowed it, what the 
 looks like in a real framework, and what signal would have shown the attempt in the
 logs. That is a repeatable shape, so it deserves a repeatable format.
 
-Every entry follows the same ten sections:
+Once the labs start, every entry follows the same ten sections:
 
 ```text
 Problem  →  Theory  →  Lab Setup  →  Experiment  →  What Happened
@@ -34,7 +34,9 @@ Problem  →  Theory  →  Lab Setup  →  Experiment  →  What Happened
 ```
 
 The middle of that chain is the offensive part. The tail is the engineering response,
-and the tail is the reason the series exists.
+and the tail is the reason the series exists. Entry 001 is the exception: it sets up
+the mindset the format depends on, so it runs on concepts and a threat-modeling
+exercise instead.
 
 ## Ground rules
 
