@@ -61,7 +61,7 @@ architecture.
 | --- | --- |
 | 001 | What is cybersecurity from a developer's perspective |
 | 002 | Authentication vs authorization: the difference that causes real bugs |
-| 003 | How the web actually works before you attack it |
+| 003 | Understanding HTTP through a security lens |
 | 004 | Linux basics for security work |
 | 005 | Networking for security engineers |
 
