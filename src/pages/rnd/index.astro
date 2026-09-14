@@ -8,6 +8,19 @@ import { getRnd } from '../../utils/content';
 
 const entries = await getRnd();
 const statuses = new Set(entries.map((e) => e.data.status));
+
+/** Lowercased plain text per entry, matched client-side by the search box. */
+const searchText = (entry: (typeof entries)[number]) =>
+  [
+    entry.data.name,
+    entry.data.description,
+    entry.data.status,
+    ...entry.data.technologies,
+    (entry.body ?? '').replace(/[#>*_`|\[\]()-]+/g, ' '),
+  ]
+    .join(' ')
+    .replace(/\s+/g, ' ')
+    .toLowerCase();
 ---
 
 <BaseLayout
@@ -25,9 +38,34 @@ const statuses = new Set(entries.map((e) => e.data.status));
   />
 
   <div class="container page">
-    <div class="grid grid-2">
-      {entries.map((entry, i) => <RndCard entry={entry} index={i + 1} />)}
+    <div class="search-bar">
+      <label class="search" for="rnd-search">
+        <Icon name="search" size={16} />
+        <span class="visually-hidden">Search R&amp;D</span>
+        <input
+          id="rnd-search"
+          type="search"
+          placeholder="Search entries, topics, technologies…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </label>
+      <p class="search-status" id="rnd-search-status" aria-live="polite">
+        {entries.length} entries
+      </p>
     </div>
+
+    <div class="grid grid-2" id="rnd-grid">
+      {
+        entries.map((entry, i) => (
+          <div class="rnd-item" data-search={searchText(entry)}>
+            <RndCard entry={entry} index={i + 1} />
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="muted empty" id="rnd-empty" hidden>No entries match that search.</p>
 
     <section class="cta panel">
       <span class="cta-icon" aria-hidden="true"><Icon name="compass" size={18} /></span>
@@ -45,12 +83,112 @@ const statuses = new Set(entries.map((e) => e.data.status));
   </div>
 </BaseLayout>
 
+<script is:inline>
+  (() => {
+    const input = document.getElementById('rnd-search');
+    const status = document.getElementById('rnd-search-status');
+    const empty = document.getElementById('rnd-empty');
+    const items = [...document.querySelectorAll('#rnd-grid .rnd-item')];
+    if (!input) return;
+
+    const apply = () => {
+      const terms = input.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
+      let shown = 0;
+      for (const item of items) {
+        const text = item.dataset.search || '';
+        const match = terms.every((term) => text.includes(term));
+        item.hidden = !match;
+        if (match) shown += 1;
+      }
+      empty.hidden = shown > 0;
+      status.textContent = terms.length
+        ? `${shown} of ${items.length} entries`
+        : `${items.length} entries`;
+      const url = new URL(location.href);
+      if (terms.length) url.searchParams.set('q', input.value.trim());
+      else url.searchParams.delete('q');
+      history.replaceState(null, '', url);
+    };
+
+    const initial = new URLSearchParams(location.search).get('q');
+    if (initial) input.value = initial;
+    input.addEventListener('input', apply);
+    input.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && input.value) {
+        input.value = '';
+        apply();
+      }
+    });
+    if (initial) apply();
+  })();
+</script>
+
 <style>
   .page {
     display: flex;
     flex-direction: column;
     gap: var(--space-xl);
     padding-block: var(--space-xl);
+  }
+
+  .search-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-sm) var(--space-md);
+  }
+
+  .search {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    flex: 1 1 20rem;
+    max-width: 36rem;
+    padding: 0.5rem 0.875rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-full);
+    background: var(--surface);
+    color: var(--text-faint);
+    transition: border-color 150ms ease;
+  }
+
+  .search:focus-within {
+    border-color: var(--accent-bright);
+    color: var(--accent);
+  }
+
+  .search input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--text);
+    font: inherit;
+    font-size: 0.9375rem;
+  }
+
+  .search input::placeholder {
+    color: var(--text-faint);
+  }
+
+  .search-status {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-faint);
+  }
+
+  .rnd-item[hidden],
+  .empty[hidden] {
+    display: none;
+  }
+
+  .rnd-item {
+    display: grid;
+  }
+
+  .empty {
+    padding-block: var(--space-lg);
   }
 
   .cta {

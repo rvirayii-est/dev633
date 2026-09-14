@@ -35,7 +35,6 @@ export const FOOTER_LINKS: NavItem[] = [
   { label: 'Resume', href: '/resume' },
   { label: 'About', href: '/about' },
   { label: 'GitHub', href: SITE.github },
-  { label: 'RSS', href: '/rss.xml' },
 ];
 
 /** Shown in the "Currently Exploring" strip on the home page. */
