@@ -25,6 +25,7 @@ export const NAV: NavItem[] = [
   { label: 'Home', href: '/' },
   { label: 'Learnings', href: '/learnings' },
   { label: 'R&D', href: '/rnd' },
+  { label: 'Java Course', href: '/course' },
   { label: 'Resume', href: '/resume' },
   { label: 'About', href: '/about' },
 ];
@@ -32,6 +33,7 @@ export const NAV: NavItem[] = [
 export const FOOTER_LINKS: NavItem[] = [
   { label: 'Learnings', href: '/learnings' },
   { label: 'R&D', href: '/rnd' },
+  { label: 'Java Course', href: '/course' },
   { label: 'Resume', href: '/resume' },
   { label: 'About', href: '/about' },
   { label: 'GitHub', href: SITE.github },
@@ -188,3 +190,22 @@ export const CATEGORIES = [
 ] as const;
 
 export type Category = (typeof CATEGORIES)[number];
+
+/** Course repository and the 12-week outline shown on /course. */
+export const COURSE = {
+  repo: 'https://github.com/rvirayii-est/java-by-building',
+  weeks: [
+    'Java foundations',
+    'Strings, input and collections',
+    'Object-oriented programming I',
+    'Object-oriented programming II',
+    'Collections, streams and files',
+    'Testing and professional practice',
+    'Databases I: SQL',
+    'Databases II: JDBC and transactions',
+    'HTTP, REST and Spring Boot',
+    'Spring Boot: JPA, validation, testing',
+    'Security and quality',
+    'Ship it: Docker, deploy, capstone',
+  ],
+} as const;

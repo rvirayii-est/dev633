@@ -10,7 +10,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "astro": "astro"
+    "astro": "astro",
+    "sync:course": "node scripts/sync-course.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^8.0.1",

@@ -1,0 +1,217 @@
+---
+import type { InferGetStaticPropsType } from 'astro';
+import { render } from 'astro:content';
+
+import Icon from '../../components/Icon.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { COURSE } from '../../data/site';
+import { getCourse, milestoneTag } from '../../utils/content';
+
+export const getStaticPaths = async () => {
+  const lessons = await getCourse();
+
+  return lessons.map((lesson, index) => ({
+    params: { slug: lesson.id },
+    props: { lesson, prev: lessons[index - 1] ?? null, next: lessons[index + 1] ?? null },
+  }));
+};
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { lesson, prev, next } = Astro.props;
+const { title, number, week, hours, level, milestone, folder } = lesson.data;
+const { Content, headings } = await render(lesson);
+const toc = headings.filter((heading) => heading.depth === 2);
+const tag = milestoneTag(milestone);
+const description = lesson.data.objectives[0]
+  ? `Lesson ${number} of Java by Building: ${lesson.data.objectives[0]}.`
+  : `Lesson ${number} of Java by Building.`;
+---
+
+<BaseLayout title={`${number}. ${title} | Java by Building`} description={description} type="article">
+  <div class="container shell">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="/course">Java by Building</a>
+      <span aria-hidden="true">/</span>
+      <span class="current">Lesson {number}</span>
+    </nav>
+
+    <header class="head panel">
+      <p class="eyebrow"><span class="dot"></span>Week {week} · {hours} hours · {level}</p>
+      <h1>{title}</h1>
+      {tag && <p class="lede">Milestone: {milestone}</p>}
+      <div class="actions">
+        <a class="btn btn-primary" href={folder} target="_blank" rel="noreferrer noopener">
+          <Icon name="github" size={15} />
+          Code for this lesson
+        </a>
+        <a class="btn btn-secondary" href={COURSE.repo} target="_blank" rel="noreferrer noopener">
+          Course repository
+          <Icon name="arrow-up-right" size={14} />
+        </a>
+      </div>
+    </header>
+
+    <div class="body">
+      <article class="prose"><Content /></article>
+
+      {
+        toc.length > 0 && (
+          <aside class="rail">
+            <nav class="panel toc" aria-label="Lesson sections">
+              <p class="rail-title">In this lesson</p>
+              <ol>
+                {toc.map((heading) => (
+                  <li>
+                    <a href={`#${heading.slug}`}>{heading.text.replace(/^\d+\.\s*/, '')}</a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          </aside>
+        )
+      }
+    </div>
+
+    <nav class="pager" aria-label="Lessons">
+      {
+        prev ? (
+          <a class="link-accent" href={`/course/${prev.id}`}>
+            <Icon name="arrow-left" size={14} />
+            {prev.data.number}. {prev.data.title}
+          </a>
+        ) : (
+          <a class="link-accent" href="/course">
+            <Icon name="arrow-left" size={14} />
+            All lessons
+          </a>
+        )
+      }
+      {
+        next && (
+          <a class="link-accent" href={`/course/${next.id}`}>
+            {next.data.number}. {next.data.title}
+            <Icon name="arrow-right" size={14} />
+          </a>
+        )
+      }
+    </nav>
+  </div>
+</BaseLayout>
+
+<style>
+  .shell {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    padding-block: var(--space-lg) var(--space-xl);
+  }
+
+  .breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--text-faint);
+  }
+
+  .breadcrumb a:hover {
+    color: var(--accent);
+  }
+
+  .breadcrumb .current {
+    color: var(--text-muted);
+  }
+
+  .head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+
+  .head h1 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  .head .lede {
+    max-width: var(--measure);
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-xs);
+  }
+
+  .body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-lg);
+    align-items: start;
+  }
+
+  .rail {
+    min-width: 0;
+  }
+
+  .toc {
+    padding: var(--space-md);
+  }
+
+  .rail-title {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+
+  .toc ol {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    margin-top: var(--space-sm);
+    padding-left: 1.125rem;
+    font-size: 0.8125rem;
+  }
+
+  .toc a {
+    color: var(--text-muted);
+  }
+
+  .toc a:hover {
+    color: var(--accent);
+  }
+
+  .pager {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    justify-content: space-between;
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border);
+  }
+
+  @media (min-width: 768px) {
+    .head h1 {
+      font-size: 2.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .body {
+      grid-template-columns: minmax(0, 1fr) 15rem;
+    }
+    .rail {
+      position: sticky;
+      top: calc(var(--header-height) + var(--space-md));
+    }
+  }
+</style>

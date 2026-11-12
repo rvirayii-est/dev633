@@ -113,3 +113,16 @@ npm run build
 ```
 
 Both must pass. A schema error fails the build rather than shipping a broken page.
+
+## Java by Building course (`/course`)
+
+The lessons under `src/content/course/` are **generated**, not written here. Source of truth is the
+`java-by-building` repository (`lessons/index.json` plus each lesson `README.md`).
+
+```bash
+npm run sync:course                      # expects ../java-by-building next to this repo
+npm run sync:course -- C:/path/to/repo   # or pass the path
+```
+
+Commit the regenerated files so the Cloudflare build never needs the course repo. Relative links in lessons
+are rewritten to `/course/<slug>` or to the GitHub repository. Mermaid diagrams (lesson 25) render as plain code blocks.

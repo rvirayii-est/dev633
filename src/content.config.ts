@@ -41,4 +41,22 @@ const rnd = defineCollection({
   }),
 });
 
-export const collections = { learnings, rnd };
+/**
+ * "Java by Building" course lessons, generated from the java-by-building
+ * repository by `npm run sync:course`. Do not edit these files by hand.
+ */
+const course = defineCollection({
+  loader: glob({ base: './src/content/course', pattern: '**/*.md' }),
+  schema: z.object({
+    title: z.string(),
+    number: z.number(),
+    week: z.number(),
+    hours: z.number(),
+    level: z.string(),
+    milestone: z.string(),
+    objectives: z.array(z.string()).default([]),
+    folder: z.url(),
+  }),
+});
+
+export const collections = { learnings, rnd, course };

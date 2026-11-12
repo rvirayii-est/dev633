@@ -1,0 +1,160 @@
+---
+import Icon from '../../components/Icon.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { COURSE } from '../../data/site';
+import { getCourse, milestoneTag } from '../../utils/content';
+
+const lessons = await getCourse();
+const hours = lessons.reduce((sum, l) => sum + l.data.hours, 0);
+
+const weeks = COURSE.weeks.map((theme, i) => ({
+  week: i + 1,
+  theme,
+  lessons: lessons.filter((l) => l.data.week === i + 1),
+}));
+---
+
+<BaseLayout
+  title="Java by Building"
+  description="A free, open-source Java course: build one Inventory and Sales Management System, step by step, from Hello World to a deployed REST API."
+>
+  <PageHeader
+    eyebrow="course // learn java by building"
+    title="Java by Building"
+    description="Learn Java by creating one real application. Over 12 weeks you grow an Inventory and Sales Management System from a console program into a tested, secured, containerised REST API."
+    stats={[
+      { label: 'Lessons', value: String(lessons.length) },
+      { label: 'Hours', value: String(hours) },
+      { label: 'Milestones', value: '7', accent: true },
+    ]}
+  />
+
+  <div class="container page">
+    <section class="panel intro">
+      <h2>How it works</h2>
+      <p class="muted">
+        Each lesson here is a step-by-step guide: objectives, plain-English explanation, runnable code, exercises,
+        expected results, troubleshooting and a checklist that tells you when you are done. The code, tests and
+        reference solutions live in the open-source repository, so every lesson is verified by automated tests.
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href={`/course/${lessons[0]?.id}`}>
+          Start with lesson 1
+          <Icon name="arrow-right" size={14} />
+        </a>
+        <a class="btn btn-secondary" href={COURSE.repo} target="_blank" rel="noreferrer noopener">
+          <Icon name="github" size={15} />
+          Get the code
+        </a>
+      </div>
+    </section>
+
+    {
+      weeks.map((w) => (
+        <section class="week">
+          <h2>
+            <span class="wk">Week {w.week}</span>
+            {w.theme}
+          </h2>
+          <ol class="lessons">
+            {w.lessons.map((l) => {
+              const tag = milestoneTag(l.data.milestone);
+              return (
+                <li>
+                  <a class="lesson card card-interactive" href={`/course/${l.id}`}>
+                    <span class="num">{String(l.data.number).padStart(2, '0')}</span>
+                    <span class="title">{l.data.title}</span>
+                    {tag && <span class="chip">{tag}</span>}
+                    <span class="meta">{l.data.hours} h</span>
+                  </a>
+                </li>
+              );
+            })}
+          </ol>
+        </section>
+      ))
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    padding-block: var(--space-xl);
+  }
+
+  .intro {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    align-items: flex-start;
+  }
+
+  .intro p {
+    max-width: var(--measure);
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .week h2 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-sm);
+    font-size: 1.125rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .wk {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .lessons {
+    display: grid;
+    gap: var(--space-sm);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .lesson {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: 0.75rem 1rem;
+  }
+
+  .num {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--text-faint);
+  }
+
+  .title {
+    flex: 1;
+    font-weight: 600;
+  }
+
+  .meta {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-faint);
+  }
+
+  @media (min-width: 768px) {
+    .lessons {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>

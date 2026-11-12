@@ -2,6 +2,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 
 export type Learning = CollectionEntry<'learnings'>;
 export type RndEntry = CollectionEntry<'rnd'>;
+export type Lesson = CollectionEntry<'course'>;
 
 /** Drafts are visible while developing and dropped from production builds. */
 const isVisible = (entry: { data: { draft: boolean } }) =>
@@ -17,6 +18,16 @@ export async function getRnd(): Promise<RndEntry[]> {
   return entries.sort(
     (a, b) => a.data.order - b.data.order || a.data.name.localeCompare(b.data.name),
   );
+}
+
+export async function getCourse(): Promise<Lesson[]> {
+  const entries = await getCollection('course');
+  return entries.sort((a, b) => a.data.number - b.data.number);
+}
+
+/** "M3 — Domain model (...)" becomes "M3"; lessons without a milestone give null. */
+export function milestoneTag(milestone: string): string | null {
+  return milestone.match(/^M\d+/)?.[0] ?? null;
 }
 
 export function formatDate(date: Date): string {
